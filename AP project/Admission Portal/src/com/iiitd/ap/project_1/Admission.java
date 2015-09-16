@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Locale;
 
@@ -895,6 +896,8 @@ public class Admission {
     
     public void register() throws IOException, ClassNotFoundException{
 		//read file to get the latest rollnumber
+    	java.util.Date date= new java.util.Date();
+    	register.setDate(new Timestamp(date.getTime()));
         File file = new File("./src/db/rollno.txt");        	
         String roll = "2015000";
         

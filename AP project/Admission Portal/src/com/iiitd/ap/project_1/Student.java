@@ -5,6 +5,7 @@ package com.iiitd.ap.project_1;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 
 @SuppressWarnings("serial")
 public class Student implements Serializable{
@@ -82,6 +83,8 @@ public class Student implements Serializable{
 	private int gateMarks;
 	private int gateScore;
 	private int gateRank;
+	
+	private Date date;
 	
 	public String getEmail() {
 		return email;
@@ -442,6 +445,12 @@ public class Student implements Serializable{
 	}
 	public void setGate(boolean gate) {
 		this.gate = gate;
+	}
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
 	}
 	
 	

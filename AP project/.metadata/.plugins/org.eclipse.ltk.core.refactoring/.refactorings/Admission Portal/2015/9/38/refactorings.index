@@ -12,3 +12,4 @@
 1442358660320	Encapsulate field 'isOad'
 1442359078271	Encapsulate field 'gate'
 1442360726392	Convert local variable 'ois' to field
+1442419231241	Encapsulate field 'date'
