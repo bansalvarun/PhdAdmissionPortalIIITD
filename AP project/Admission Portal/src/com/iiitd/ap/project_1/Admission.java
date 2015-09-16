@@ -1,4 +1,5 @@
 package com.iiitd.ap.project_1;
+
 //@author Varun Bansal 2013168
 //Controller for Applicant view
 import java.io.BufferedReader;
@@ -16,9 +17,7 @@ import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.sql.Timestamp;
 import java.time.LocalDate;
-import java.time.Year;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Locale;
 
 import javafx.fxml.FXML;
@@ -37,6 +36,8 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.stage.FileChooser;
 
 public class Admission {
 	
@@ -339,7 +340,12 @@ public class Admission {
 
 	    @FXML
 	    private TextField oadRank;
-   
+	    
+	    @FXML
+	    private Label chosenSop;
+	    
+	    @FXML 
+	    private Label chosenCV;
 
     int rolln = 2015000;
     Student register = new Student();
@@ -1030,7 +1036,30 @@ public class Admission {
     		gate.setVisible(false);
     	}
     }
-
+    public void submitCV(){
+    	FileChooser fileChooser = new FileChooser();
+    	fileChooser.setTitle("Open File");
+    	File file = fileChooser.showOpenDialog(null); // you could pass a stage reference here if you wanted.
+    	if (file != null){
+    		register.setCv(file.toString());
+    		chosenCV.setTextFill(Color.GREEN);
+    		chosenCV.setText(file.getName());
+    		cv.setText("Update CV");
+    	}
+    	
+    }
+    public void submitSop(){
+    	FileChooser fileChooser = new FileChooser();
+    	fileChooser.setTitle("Open File");
+    	File file = fileChooser.showOpenDialog(null); // you could pass a stage reference here if you wanted.
+    	if (file != null){
+    		register.setSop(file.toString());
+    		chosenSop.setTextFill(Color.GREEN);
+    		chosenSop.setText(file.getName());
+    		sop.setText("Update SOP");
+    	}
+    	
+    }
     
 
 }

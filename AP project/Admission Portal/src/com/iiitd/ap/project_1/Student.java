@@ -37,12 +37,12 @@ public class Student implements Serializable{
 	private int xiiPassYear;
 	
 //	graduate info
-	private String graduateDegree;
-	private String graduateDis;
-	private String graduateCollege;
-	private String graduateUniversity;
-	private String graduateCity;
-	private String graduateState;
+	private String graduateDegree=null;
+	private String graduateDis=null;
+	private String graduateCollege=null;
+	private String graduateUniversity=null;
+	private String graduateCity=null;
+	private String graduateState=null;
 	private int graduateYear;
 	private boolean isGraduateCGPA;
 	private int graduateCGPA_Basis;
@@ -51,23 +51,23 @@ public class Student implements Serializable{
 	private int graduateMarksVal;
 	
 	
-	private String applyECEPhD;
-	private String completedPG;
-	private String otherAcademicDegrees;
-	private String takenGateExam;
+	private String applyECEPhD=null;
+	private String completedPG=null;
+	private String otherAcademicDegrees=null;
+	private String takenGateExam=null;
 	
 //  ece PHD preference
 	private ArrayList<String>ecePhdPref = new ArrayList<>();
 	
 //	postGraduate info
 	private boolean isPostGraduate;
-	private String postGraduateDegree;
-	private String postGraduateDis;
-	private String postGraduateCollege;
-	private String pgThesis;
-	private String postGraduateCity;
-	private String postGraduateState;
-	private String postGraduateYear;
+	private String postGraduateDegree=null;
+	private String postGraduateDis=null;
+	private String postGraduateCollege=null;
+	private String pgThesis=null;
+	private String postGraduateCity=null;
+	private String postGraduateState=null;
+	private String postGraduateYear=null;
 	private Boolean isPostGraduateCGPA;
 	private int postGraduateCGPA_Basis;
 	private int postGraduateCGPAVal;
@@ -85,9 +85,11 @@ public class Student implements Serializable{
 	private int gateScore;
 	private int gateRank;
 	
-	private String achievments;
+	private String achievments=null;
+	private String cv=null;
+	private String sop=null;
 	
-	private Date date;
+	private Date date=null;
 	
 	
 	public String getEmail() {
@@ -461,6 +463,18 @@ public class Student implements Serializable{
 	}
 	public void setAchievments(String achievments) {
 		this.achievments = achievments;
+	}
+	public String getCv() {
+		return cv;
+	}
+	public void setCv(String cv) {
+		this.cv = cv;
+	}
+	public String getSop() {
+		return sop;
+	}
+	public void setSop(String sop) {
+		this.sop = sop;
 	}
 	
 	

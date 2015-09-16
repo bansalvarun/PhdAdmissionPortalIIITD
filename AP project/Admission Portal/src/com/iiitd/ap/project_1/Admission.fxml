@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <!--
 @author Varun Bansal 2013168
 Applicant view
 -->
+
 <?import javafx.scene.effect.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -427,12 +429,12 @@ Applicant view
                                              <Insets top="5.0" fx:id="x3" />
                                            </GridPane.margin>
                                          </Label>
-                                         <Button fx:id="cv" mnemonicParsing="false" text="Choose a file" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="26" GridPane.valignment="TOP">
+                                         <Button fx:id="cv" mnemonicParsing="false" onAction="#submiCV" text="Choose a file" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="26" GridPane.valignment="TOP">
                                            <GridPane.margin>
                                              <Insets top="5.0" fx:id="x3" />
                                            </GridPane.margin>
                                          </Button>
-                                         <Label font="$x1" minHeight="-1.0" prefHeight="-1.0" prefWidth="-1.0" text="No files Chosen" textAlignment="RIGHT" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="26" GridPane.valignment="TOP">
+                                         <Label fx:id="chosenCV" font="$x1" minHeight="-1.0" prefHeight="-1.0" prefWidth="-1.0" text="No files Chosen" textAlignment="RIGHT" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="26" GridPane.valignment="TOP">
                                            <GridPane.margin>
                                              <Insets left="90.0" top="5.0" fx:id="x7" />
                                            </GridPane.margin>
@@ -450,12 +452,12 @@ Applicant view
                                              <Insets top="5.0" fx:id="x3" />
                                            </GridPane.margin>
                                          </Label>
-                                         <Button fx:id="sop" mnemonicParsing="false" text="Choose a file" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="27" GridPane.valignment="TOP">
+                                         <Button fx:id="sop" mnemonicParsing="false" onAction="#submitSop" text="Choose a file" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="27" GridPane.valignment="TOP">
                                            <GridPane.margin>
                                              <Insets top="5.0" fx:id="x3" />
                                            </GridPane.margin>
                                          </Button>
-                                         <Label font="$x1" minHeight="-1.0" prefHeight="-1.0" prefWidth="-1.0" text="No files Chosen" textAlignment="RIGHT" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.margin="$x7" GridPane.rowIndex="27" GridPane.valignment="TOP" />
+                                         <Label fx:id="chosenSop" font="$x1" minHeight="-1.0" prefHeight="-1.0" prefWidth="-1.0" text="No files Chosen" textAlignment="RIGHT" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.margin="$x7" GridPane.rowIndex="27" GridPane.valignment="TOP" />
                                          <Label font="$x8" minHeight="-1.0" prefHeight="-1.0" prefWidth="-1.0" text="Upload a pdf file of max 10 MB" textAlignment="RIGHT" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="27" GridPane.valignment="TOP">
                                            <GridPane.margin>
                                              <Insets top="35.0" />
