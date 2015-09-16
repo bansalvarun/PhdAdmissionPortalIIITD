@@ -520,7 +520,6 @@ public class Admission {
 	    		errors.add("Enter a valid Pin Code");    						
 			    op1 = 0;
 			}
-
     	}
     	if(!errors.isEmpty()){
     		errorsPI.setText("Please fix the following errors first:");
@@ -602,29 +601,37 @@ public class Admission {
     		myCgpaOrMarks = cgpa_marks.getText();
 
 		int myCgpa = 0;
-    	if(cgpaVal.getText()!=null){
-    		try{
-    			String blah = cgpaVal.getText();
-    			myCgpa = Integer.parseInt(blah);
-    		}catch(NumberFormatException e){
-    			System.out.println("Invalid cgpa value");
-    		}
-    	}
+		if(myCgpaOrMarks=="CGPA"){
+	    	if(cgpaVal.getText()!=null){
+	    		try{
+	    			String blah = cgpaVal.getText();
+	    			myCgpa = Integer.parseInt(blah);
+	    		}catch(NumberFormatException e){
+	    			errors.add("Add cgpa value in graduation");
+	    		}
+	    	}
+		}
     		
 
 		int myCgpaBasis = 0;
 		if(cgpabasis.getValue()!=null)
 			myCgpaBasis = cgpabasis.getValue();
 		int myMarks = 0;
-    	if(marksVal.getText()!=null){
-    		try{
-    			String blah = marksVal.getText();
-    			myMarks= Integer.parseInt(blah);
-    		}catch(NumberFormatException e){
-    			System.out.println("Invalid cgpa value");
-    		}
-
-    	}
+		if(myCgpaOrMarks=="Marks"){
+	    	if(marksVal.getText()!=null){
+	    		try{
+	    			String blah = marksVal.getText();
+	    			myMarks= Integer.parseInt(blah);
+	    			if(myMarks>100){
+	    				errors.add("invalid marks in graduation");
+	    			}
+	    		}catch(NumberFormatException e){
+	    			System.out.println("Invalid marks value");
+	    			errors.add("Add marks in graduation");
+	    			
+	    		}	
+	    	}
+		}
     	boolean isEcePhd = applyForPhd.isSelected();
     	ArrayList<String> ecePhdPrefs = new ArrayList<>();
     	String ecePhdPref1 = null;
@@ -873,6 +880,7 @@ public class Admission {
 //				pg cgpa marks are left
 //				register.setIsPostGraduateCGPA();
 //				register
+				
 			}
 			else
 				register.setIsPostGraduateCGPA(false);
