@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="820.0" prefWidth="840.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.iiitd.ap.project_1.Controller">
+   <children>
+      <SplitPane dividerPositions="0.18092909535452323" layoutX="205.0" layoutY="65.0" orientation="VERTICAL" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: white;">
+               <children>
+                  <ImageView fitHeight="137.0" fitWidth="203.0" layoutX="14.0" layoutY="7.0">
+                     <image>
+                        <Image url="@../../../../../Downloads/style2colorsmall.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="336.0" layoutY="55.0" text="Filter Entries">
+                     <font>
+                        <Font name="Arial Bold" size="36.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <TabPane layoutX="358.0" layoutY="125.0" prefHeight="491.0" prefWidth="798.0" style="-fx-background-color: white;" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <tabs>
+                      <Tab text="Personal Information">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <GridPane layoutX="25.0" layoutY="39.0" prefHeight="623.0" prefWidth="838.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <Label layoutX="25.0" layoutY="206.0" text="Category" GridPane.rowIndex="3">
+                                             <font>
+                                                <Font name="System Bold" size="13.0" />
+                                             </font></Label>
+                                          <DatePicker fx:id="DOB" layoutX="362.0" layoutY="393.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                          <Label layoutX="25.0" layoutY="256.0" text="Gender" GridPane.rowIndex="4">
+                                             <font>
+                                                <Font name="System Bold" size="13.0" />
+                                             </font></Label>
+                                          <TextField fx:id="enrollment" layoutX="362.0" layoutY="147.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <TextField fx:id="email" layoutX="362.0" layoutY="39.0" GridPane.columnIndex="1" />
+                                          <HBox layoutX="362.0" layoutY="301.0" spacing="30.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                             <children>
+                                                <RadioButton fx:id="yes" layoutX="362.0" layoutY="301.0" mnemonicParsing="false" text="Yes" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="group2" />
+                                                   </toggleGroup></RadioButton>
+                                                <RadioButton fx:id="no" layoutX="362.0" layoutY="301.0" mnemonicParsing="false" text="No" toggleGroup="$group2" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                             </children>
+                                             <padding>
+                                                <Insets top="30.0" />
+                                             </padding>
+                                          </HBox>
+                                          <Label layoutX="25.0" layoutY="98.0" text="Name" GridPane.rowIndex="1">
+                                             <font>
+                                                <Font name="System Bold" size="13.0" />
+                                             </font></Label>
+                                          <Label layoutX="25.0" layoutY="348.0" text="Date Of BIrth" GridPane.rowIndex="6">
+                                             <font>
+                                                <Font name="System Bold" size="13.0" />
+                                             </font></Label>
+                                          <TextField fx:id="name" layoutX="362.0" layoutY="93.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <Label layoutX="25.0" layoutY="44.0" text="Email">
+                                             <font>
+                                                <Font name="System Bold Italic" size="13.0" />
+                                             </font></Label>
+                                          <Label layoutX="25.0" layoutY="302.0" text="Physically Disabled" GridPane.rowIndex="5">
+                                             <font>
+                                                <Font name="System Bold Italic" size="13.0" />
+                                             </font></Label>
+                                          <HBox layoutX="362.0" layoutY="255.0" spacing="30.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                             <children>
+                                                <RadioButton fx:id="female" layoutX="362.0" layoutY="255.0" mnemonicParsing="false" text="Female" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="group1" />
+                                                   </toggleGroup></RadioButton>
+                                                <RadioButton fx:id="male" layoutX="362.0" layoutY="255.0" mnemonicParsing="false" text="Male" toggleGroup="$group1" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                             </children>
+                                             <padding>
+                                                <Insets top="30.0" />
+                                             </padding>
+                                          </HBox>
+                                          <Label layoutX="25.0" layoutY="152.0" text="Enrollment Number" GridPane.rowIndex="2">
+                                             <font>
+                                                <Font name="System Bold Italic" size="13.0" />
+                                             </font></Label>
+                                          <HBox layoutX="362.0" layoutY="347.0" spacing="20.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                             <children>
+                                                <RadioButton fx:id="after" layoutX="362.0" layoutY="347.0" mnemonicParsing="false" text="After" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="group3" />
+                                                   </toggleGroup></RadioButton>
+                                                <RadioButton fx:id="before" layoutX="362.0" layoutY="347.0" mnemonicParsing="false" text="Before" toggleGroup="$group3" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                                <RadioButton fx:id="on" layoutX="362.0" layoutY="347.0" mnemonicParsing="false" text="On " toggleGroup="$group3" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                             </children>
+                                             <padding>
+                                                <Insets top="30.0" />
+                                             </padding>
+                                          </HBox>
+                                          <ComboBox fx:id="combo1" editable="true" prefWidth="150.0" promptText="Select one" visibleRowCount="20" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="30.0" left="100.0" right="30.0" top="30.0" />
+                                       </padding>
+                                    </GridPane>
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                      <Tab text="Educational Information">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <GridPane layoutX="34.0" layoutY="45.0" prefHeight="624.0" prefWidth="798.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <Label layoutX="79.0" layoutY="27.0" text="PhD Stream" />
+                                          <Label layoutX="79.0" layoutY="248.0" text="State(Graduation from)" GridPane.rowIndex="9" />
+                                          <Label layoutX="79.0" layoutY="151.0" text="Department(Graduation)" GridPane.rowIndex="5" />
+                                          <Label layoutX="79.0" layoutY="43.0" text="Gradutaion Degree" GridPane.rowIndex="1" />
+                                          <TextField fx:id="univPostGrad" layoutX="289.0" layoutY="216.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                                          <Label layoutX="79.0" layoutY="78.0" text="Post Graduation Degree" GridPane.rowIndex="2" />
+                                          <Label layoutX="79.0" layoutY="124.0" text="Class XII Board" GridPane.rowIndex="4" />
+                                          <Label layoutX="79.0" layoutY="198.0" text="University(Graduation)" GridPane.rowIndex="7" />
+                                          <Label layoutX="79.0" layoutY="176.0" text="Department(Post Graduation)" GridPane.rowIndex="6" />
+                                          <Label layoutX="79.0" layoutY="221.0" text="State(Post Graduation from)" GridPane.rowIndex="10" />
+                                          <TextField fx:id="univGrad" layoutX="289.0" layoutY="193.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                          <Label layoutX="79.0" layoutY="272.0" text="University(Post Graduation)" GridPane.rowIndex="8" />
+                                          <Label layoutX="79.0" layoutY="102.0" text="Class X Board" GridPane.rowIndex="3" />
+                                          <Label text="Class X Board Percentge" GridPane.rowIndex="11" />
+                                          <Label text="Class XII Board Percentge" GridPane.rowIndex="12" />
+                                          <Label text="Graduation Marks Percentage" GridPane.rowIndex="13" />
+                                          <Label text="Post Graduation Marks Percentage" GridPane.rowIndex="14" />
+                                          <Label text="GATE Score" GridPane.rowIndex="15" />
+                                          <HBox spacing="15.0" GridPane.columnIndex="1" GridPane.rowIndex="11">
+                                             <children>
+                                                <RadioButton layoutX="620.0" layoutY="157.0" mnemonicParsing="false" text="Greater than" />
+                                                <RadioButton layoutX="620.0" layoutY="194.0" mnemonicParsing="false" text="Equals" />
+                                                <RadioButton layoutX="620.0" layoutY="120.0" mnemonicParsing="false" text="Lesser than" />
+                                                <TextField layoutX="694.0" layoutY="228.0" prefHeight="26.0" prefWidth="66.0" promptText="Percent" />
+                                             </children>
+                                             <padding>
+                                                <Insets top="15.0" />
+                                             </padding>
+                                          </HBox>
+                                          <HBox spacing="15.0" GridPane.columnIndex="1" GridPane.rowIndex="12">
+                                             <children>
+                                                <RadioButton layoutX="620.0" layoutY="157.0" mnemonicParsing="false" text="Greater than" />
+                                                <RadioButton layoutX="620.0" layoutY="194.0" mnemonicParsing="false" text="Equals" />
+                                                <RadioButton layoutX="620.0" layoutY="120.0" mnemonicParsing="false" text="Lesser than" />
+                                                <TextField layoutX="694.0" layoutY="228.0" prefHeight="26.0" prefWidth="66.0" promptText="Percent" />
+                                             </children>
+                                             <padding>
+                                                <Insets top="15.0" />
+                                             </padding>
+                                          </HBox>
+                                          <HBox spacing="15.0" GridPane.columnIndex="1" GridPane.rowIndex="13">
+                                             <children>
+                                                <RadioButton layoutX="620.0" layoutY="157.0" mnemonicParsing="false" text="Greater than" />
+                                                <RadioButton layoutX="620.0" layoutY="194.0" mnemonicParsing="false" text="Equals" />
+                                                <RadioButton layoutX="620.0" layoutY="120.0" mnemonicParsing="false" text="Lesser than" />
+                                                <TextField layoutX="694.0" layoutY="228.0" prefHeight="26.0" prefWidth="66.0" promptText="Percent" />
+                                             </children>
+                                             <padding>
+                                                <Insets top="15.0" />
+                                             </padding>
+                                          </HBox>
+                                          <HBox spacing="15.0" GridPane.columnIndex="1" GridPane.rowIndex="14">
+                                             <children>
+                                                <RadioButton layoutX="620.0" layoutY="157.0" mnemonicParsing="false" text="Greater than" />
+                                                <RadioButton layoutX="620.0" layoutY="194.0" mnemonicParsing="false" text="Equals" />
+                                                <RadioButton layoutX="620.0" layoutY="120.0" mnemonicParsing="false" text="Lesser than" />
+                                                <TextField layoutX="694.0" layoutY="228.0" prefHeight="26.0" prefWidth="66.0" promptText="Percent" />
+                                             </children>
+                                             <padding>
+                                                <Insets top="15.0" />
+                                             </padding>
+                                          </HBox>
+                                          <HBox spacing="15.0" GridPane.columnIndex="1" GridPane.rowIndex="15">
+                                             <children>
+                                                <RadioButton layoutX="620.0" layoutY="157.0" mnemonicParsing="false" text="Greater than" />
+                                                <RadioButton layoutX="620.0" layoutY="194.0" mnemonicParsing="false" text="Equals" />
+                                                <RadioButton layoutX="620.0" layoutY="120.0" mnemonicParsing="false" text="Lesser than" />
+                                                <TextField layoutX="694.0" layoutY="228.0" prefHeight="26.0" prefWidth="66.0" promptText="Score" />
+                                             </children>
+                                             <padding>
+                                                <Insets top="15.0" />
+                                             </padding>
+                                          </HBox>
+                                          <ComboBox fx:id="combo2" prefWidth="150.0" GridPane.columnIndex="1" />
+                                          <ComboBox fx:id="combo3" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <ComboBox fx:id="combo4" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <ComboBox fx:id="combo5" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                          <ComboBox fx:id="combo6" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                          <ComboBox fx:id="combo7" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                             <GridPane.margin>
+                                                <Insets />
+                                             </GridPane.margin>
+                                          </ComboBox>
+                                          <ComboBox fx:id="combo8" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                          <ComboBox fx:id="combo9" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                                          <ComboBox fx:id="combo10" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="30.0" left="100.0" right="30.0" top="30.0" />
+                                       </padding>
+                                    </GridPane>
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                        <Tab text="Submit">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <GridPane layoutX="197.0" layoutY="56.0" prefHeight="229.0" prefWidth="405.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="191.0" minWidth="10.0" prefWidth="169.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="329.0" minWidth="10.0" prefWidth="284.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints maxHeight="160.0" minHeight="10.0" prefHeight="134.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="219.0" minHeight="10.0" prefHeight="139.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <DatePicker fx:id="ADU" layoutX="292.0" layoutY="253.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <DatePicker fx:id="ADF" layoutX="276.0" layoutY="179.0" GridPane.columnIndex="1" />
+                                          <Label layoutX="198.0" layoutY="258.0" text="Applictions Dated Upto" GridPane.rowIndex="1" />
+                                          <Label layoutX="181.0" layoutY="176.0" text="Applictions Dated From" />
+                                       </children>
+                                    </GridPane>
+                                    <Button fx:id="Submit" layoutX="197.0" layoutY="375.0" mnemonicParsing="false" onAction="#submitMethod" text="Show Filtered Results" />
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </Tab>
+                    </tabs>
+                  </TabPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="820.0" prefWidth="840.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.iiitd.ap.project_1.ControllerResult">
+   <children>
+      <SplitPane dividerPositions="0.1809" layoutX="240.0" layoutY="89.0" orientation="VERTICAL" prefHeight="800.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: white;">
+               <children>
+                  <Label layoutX="336.0" layoutY="55.0" text="Filtered Result">
+                     <font>
+                        <Font name="Arial Bold" size="36.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="back" layoutX="693.0" layoutY="61.0" mnemonicParsing="false" onAction="#backMethod" prefHeight="31.0" prefWidth="74.0" text="Back" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <TableView layoutX="181.0" layoutY="83.0" prefHeight="669.0" prefWidth="798.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columns>
+                      <TableColumn prefWidth="252.0" text="Enrollment ID" />
+                      <TableColumn minWidth="0.0" prefWidth="279.0" text="Name" />
+                        <TableColumn prefWidth="306.0" text="Link To Data" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+      <ImageView fitHeight="137.0" fitWidth="203.0" layoutX="14.0" layoutY="7.0">
+         <image>
+            <Image url="@../../../../../Downloads/style2colorsmall.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

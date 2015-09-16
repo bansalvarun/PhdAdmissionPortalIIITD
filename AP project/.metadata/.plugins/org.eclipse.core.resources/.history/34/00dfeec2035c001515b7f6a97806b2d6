@@ -1,0 +1,20 @@
+package com.iiitd.ap.project_1;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.ObjectInputStream;
+
+public class test {
+	public static void main(String[] args){
+		Student s = null;
+		FileInputStream fin;
+		try {
+			fin = new FileInputStream("./src/db/data.txt");
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		ObjectInputStream ois = new ObjectInputStream(fin);
+		s= (Student) ois.readObject();
+	}
+}
