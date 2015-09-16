@@ -3,12 +3,15 @@ package com.iiitd.ap.project_1;
 //Controller for Applicant view
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.EOFException;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -890,7 +893,7 @@ public class Admission {
     public void submitFeedback(){    		
     }
     
-    public void register(){
+    public void register() throws IOException, ClassNotFoundException{
 		//read file to get the latest rollnumber
         File file = new File("./src/db/rollno.txt");        	
         String roll = "2015000";
@@ -907,8 +910,6 @@ public class Admission {
         rolln = Integer.parseInt(roll);
         rolln++;
         
-        
-        
     	//append roll number in the rollno.txt
         try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("./src/db/rollno.txt", true)))) {
             out.println(rolln);
@@ -916,18 +917,53 @@ public class Admission {
         	System.out.println("could not add roll number to rollno.txt");
         }
         
+        ArrayList<Student> prevStudents = new ArrayList<>();
+		ObjectInputStream ois = null;
+		Student s = null;
+		FileInputStream fin;
+		try {
+			fin = new FileInputStream("./src/db/data.txt");
+			ois = new ObjectInputStream(fin);
+			
+			while((s= (Student) ois.readObject())!=null){
+				if(s instanceof Student){
+					System.out.println(s.getName());
+					prevStudents.add(s);
+				}
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (EOFException ex) {  //This exception will be caught when EOF is reached
+            System.out.println("End of file reached.");
+		}catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        } finally {
+            try {
+                if (ois != null) {
+                    ois.close();
+                }
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+		
+	
+	
         try{
     		FileOutputStream fout = new FileOutputStream("./src/db/data.txt");
-    		ObjectOutputStream oos = new ObjectOutputStream(fout);   
+    		ObjectOutputStream oos = new ObjectOutputStream(fout);
+    		for(int i=0; i<prevStudents.size(); i++){
+    			oos.writeObject(s);
+    		}
     		oos.writeObject(register);
-    		
-    		
     		oos.close();
     		System.out.println("Done");
     		System.out.println(register.getName());
+    		submit.setDisable(true);
     		   
     	   }catch(Exception ex){
-    		   System.out.println("Could not write in file");
+    		   System.out.println("Could not write in data file");
     	   }
         
     }
