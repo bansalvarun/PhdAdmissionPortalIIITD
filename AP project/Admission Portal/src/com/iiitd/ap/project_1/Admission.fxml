@@ -52,7 +52,7 @@ Applicant view
      </AnchorPane>
      <AnchorPane maxWidth="800.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color : white;&#10;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
        <children>
-         <ScrollPane fitToHeight="true" fitToWidth="true" maxWidth="-1.0" minHeight="300.0" prefHeight="300.0" prefViewportHeight="1000.0" prefViewportWidth="500.0" prefWidth="-1.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <ScrollPane fx:id="scrollpane" fitToHeight="true" fitToWidth="true" maxWidth="-1.0" minHeight="300.0" prefHeight="300.0" prefViewportHeight="1000.0" prefViewportWidth="500.0" prefWidth="-1.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
            <content>
              <AnchorPane maxWidth="-1.0" prefWidth="-1.0" style="-fx-background-color: white;">
                <children>
@@ -429,7 +429,7 @@ Applicant view
                                              <Insets top="5.0" fx:id="x3" />
                                            </GridPane.margin>
                                          </Label>
-                                         <Button fx:id="cv" mnemonicParsing="false" onAction="#submiCV" text="Choose a file" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="26" GridPane.valignment="TOP">
+                                         <Button fx:id="cv" mnemonicParsing="false" onAction="#submitCV" text="Choose a file" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="26" GridPane.valignment="TOP">
                                            <GridPane.margin>
                                              <Insets top="5.0" fx:id="x3" />
                                            </GridPane.margin>
@@ -1076,6 +1076,14 @@ Applicant view
                                              <Insets left="20.0" top="20.0" />
                                            </VBox.margin>
                                          </Button>
+                                                            <Label fx:id="registered" text="You have been registered! Thank You!" textFill="#3eee7c">
+                                                               <font>
+                                                                  <Font name="System Italic" size="15.0" />
+                                                               </font>
+                                                               <padding>
+                                                                  <Insets left="20.0" top="30.0" />
+                                                               </padding>
+                                                            </Label>
                                        </children>
                                      </VBox>
                                    </children>

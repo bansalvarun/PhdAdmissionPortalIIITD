@@ -34,7 +34,7 @@ public class Student implements Serializable{
 	private int xPassYear;
 	private String xiiBoard;
 	private float xiiMarks;
-	private int xiiPassYear;
+	private float xiiPassYear;
 	
 //	graduate info
 	private String graduateDegree=null;
@@ -48,7 +48,7 @@ public class Student implements Serializable{
 	private int graduateCGPA_Basis;
 	private int graduateCGPAVal;
 	private boolean isGraduateMarks;
-	private int graduateMarksVal;
+	private float graduateMarksVal;
 	
 	
 	private String applyECEPhD=null;
@@ -218,10 +218,10 @@ public class Student implements Serializable{
 	public void setXiiMarks(float xiiMarks) {
 		this.xiiMarks = xiiMarks;
 	}
-	public int getXiiPassYear() {
+	public float getXiiPassYear() {
 		return xiiPassYear;
 	}
-	public void setXiiPassYear(int xiiPassYear) {
+	public void setXiiPassYear(float xiiPassYear) {
 		this.xiiPassYear = xiiPassYear;
 	}
 	public String getGraduateDegree() {
@@ -290,10 +290,10 @@ public class Student implements Serializable{
 	public void setGraduateMarks(boolean isGraduateMarks) {
 		this.isGraduateMarks = isGraduateMarks;
 	}
-	public int getGraduateMarksVal() {
+	public float getGraduateMarksVal() {
 		return graduateMarksVal;
 	}
-	public void setGraduateMarksVal(int graduateMarksVal) {
+	public void setGraduateMarksVal(float graduateMarksVal) {
 		this.graduateMarksVal = graduateMarksVal;
 	}
 	public String getApplyECEPhD() {

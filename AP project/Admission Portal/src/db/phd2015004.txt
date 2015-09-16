@@ -1,0 +1,64 @@
+email sidharthgupta@gmail.com
+name Four Gupta
+rollnum 2015004
+addressOfCorrespondence safaf afas afsf
+Mobile 123456789
+phdStream Computer Science
+phdAP [PhDoption1, null, null]
+gender Male
+category General
+isPhysicallyDisabled No
+dob 2015-09-14
+isDP No
+father asfafa
+nation Afghanistan
+permanentAddress where do you live?
+pinCode 110032
+xBoard qwqwf
+xMarks 56.0
+xPassYear 1992
+xiiBoard asfafa
+xiiMarks 65.0
+xiiPassYear 1998.0
+graduateDegree asfafa afasf
+graduateDis afkaklfnaklnf
+graduateCollege aklfnaklfna
+graduateUniversity alkfnakflnaknf
+graduateCity akflafkn
+graduateState Mumbai
+graduateYear 1980
+isGraduateCGPA false
+graduateCGPA_Basis 0
+graduateCGPAVal 0
+isGraduateMarks true
+graduateMarksVal 0.0
+applyECEPhD false
+completedPG null
+otherAcademicDegrees null
+takenGateExam null
+ecePhdPref []
+isPostGraduate false
+postGraduateDegree null
+postGraduateDis null
+postGraduateCollege null
+pgThesis null
+postGraduateCity null
+postGraduateState null
+postGraduateYear null
+isPostGraduateCGPA false
+postGraduateCGPA_Basis 0
+postGraduateCGPAVal 0
+isPostGraduateMarks null
+postGraduateMarksVal 0
+isOad false
+otherDegrees []
+gate false
+gateArea null
+gateYear 0
+gateMarks 0
+gateScore 0
+gateRank 0
+achievments 
+cv null
+sop null
+date 2015-09-17 02:42:19.924

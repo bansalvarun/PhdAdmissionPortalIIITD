@@ -12,13 +12,20 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.lang.reflect.Field;
 import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Locale;
+import java.util.Set;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -28,6 +35,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextArea;
@@ -41,7 +49,9 @@ import javafx.stage.FileChooser;
 
 public class Admission {
 	
-	 @FXML
+	 	@FXML
+	 	private Label registered;
+		@FXML
 	    private TextField achievements;
 
 	    @FXML
@@ -346,15 +356,27 @@ public class Admission {
 	    
 	    @FXML 
 	    private Label chosenCV;
-
+	    
+	    @FXML
+	    private ScrollPane scrollpane;
+	   
+	    
     int rolln = 2015000;
     Student register = new Student();
+    int flag = 0;
+    
+    Set<String> graduationDegreeSet = new HashSet<String>();
+    Set<String> postGraduationDegreeSet = new HashSet<String>();
+    Set<String> graduationDisSet = new HashSet<String>();
+    Set<String> postGraduationDisSet = new HashSet<String>();
+    Set<String> graduationStateSet = new HashSet<String>();
+    Set<String> postGraduationStateSet = new HashSet<String>();
+    Set<String> xBoardSet = new HashSet<String>();
+    Set<String> xiiBoardSet = new HashSet<String>();
     
     @FXML void initialize() throws FileNotFoundException, IOException {
-//    	System.out.println(selectionModel);
-//    	selectionModel.select(1);
-        //append format in the forFilter.txt
-
+    	submit.setDisable(true);
+    	registered.setVisible(false);
     	ecePhd.setVisible(false);
     	compPG.setVisible(false);
     	oad.setVisible(false);
@@ -420,6 +442,74 @@ public class Admission {
         rolln = Integer.parseInt(roll);
         rolln++;
         rollnum.setText(Integer.toString(rolln));
+
+        File gdeg = new File("./src/db/filters/graduationDegree.txt");        	
+        try (BufferedReader br = new BufferedReader(new FileReader(gdeg))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+            	graduationDegreeSet.add(line);
+            }
+        }catch (IOException e2) {
+        }
+        File pgdeg = new File("./src/db/filters/postGraduationDegree.txt");        	
+        try (BufferedReader br = new BufferedReader(new FileReader(pgdeg))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+            	postGraduationDegreeSet.add(line);
+            }
+        }catch (IOException e2) {
+        }
+        File gdis = new File("./src/db/filters/graduationDis.txt");        	
+        try (BufferedReader br = new BufferedReader(new FileReader(gdis))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+            	graduationDisSet.add(line);
+            }
+        }catch (IOException e2) {
+        }
+        File pgdis = new File("./src/db/filters/postGraduationDis.txt");        	
+        try (BufferedReader br = new BufferedReader(new FileReader(pgdis))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+            	graduationDisSet.add(line);
+            }
+        }catch (IOException e2) {
+        }
+
+        File gst = new File("./src/db/filters/graduationState.txt");        	
+        try (BufferedReader br = new BufferedReader(new FileReader(gst))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+            	graduationStateSet.add(line);
+            }
+        }catch (IOException e2) {
+        }
+        File pgst = new File("./src/db/filters/postGraduationState.txt");        	
+        try (BufferedReader br = new BufferedReader(new FileReader(pgst))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+            	postGraduationStateSet.add(line);
+            }
+        }catch (IOException e2) {
+        }
+        File xb = new File("./src/db/filters/xBoard.txt");        	
+        try (BufferedReader br = new BufferedReader(new FileReader(xb))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+            	xBoardSet.add(line);
+            }
+        }catch (IOException e2) {
+        }
+        File xiib = new File("./src/db/filters/xiiBoard.txt");        	
+        try (BufferedReader br = new BufferedReader(new FileReader(xiib))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+            	xiiBoardSet.add(line);
+            }
+        }catch (IOException e2) {
+        }
+        
+        
         
         
     }
@@ -502,10 +592,11 @@ public class Admission {
     	if(isPhyDisabled==null){
     		errors.add("Select Physically Disabled option");    		
     	}
-//    	dob is not mandatory
-//    	if(myDOB.){
-//    		errors.add("Add your date of birth");    		
-//    	}
+    	LocalDate todayDate = LocalDate.now();
+    	if(myDOB==null)
+    		errors.add("Add your Birthdate");    		
+    	if(todayDate.compareTo(myDOB)<=0)
+    		errors.add("Add your Birthdate");
     	if(myWar==null){
     		errors.add("'Children/War Widows of Defence Personnel killed/Disabled in Action' is mandatory");    		
     	}
@@ -532,14 +623,16 @@ public class Admission {
 			}
     	}
     	if(!errors.isEmpty()){
+    		registered.setVisible(false);
     		errorsPI.setText("Please fix the following errors first:");
     		for(int i=0; i<errors.size(); i++){
     			errorsPI.setText(errorsPI.getText()+"\n    >"+errors.get(i)+"!" );
     		}
     	}
     	else{
+    		registered.setVisible(false);
     		errorsPI.setStyle("-fx-text-fill: green;");
-    		errorsPI.setText("Your Personal Information has been saved, please verify the details and contact admin in case of any probelm.");
+    		errorsPI.setText("Your Personal Information has been saved, please verify the details and contact admin in case of any problem.");
     		register.setName(myName);
     		register.setEmail(myEmail);
     		register.setAddressOfCorrespondence(myAddC);
@@ -558,7 +651,15 @@ public class Admission {
     		register.setFather(myFather);
     		register.setNation(myNation);
     		register.setPermanentAddress(myPerAdd);
-    		register.setPinCode(Integer.parseInt(myPin));   	
+    		register.setPinCode(Integer.parseInt(myPin));  
+    		
+    		flag+=1;
+    		if(flag==2)
+    			submit.setDisable(false);
+
+    		personalInfoGrid.setDisable(true);
+    		scrollpane.setVvalue(0.0);
+    		tabpane.getSelectionModel().select(1);
     	}
     }
 
@@ -567,8 +668,10 @@ public class Admission {
     	ArrayList<String> errors = new ArrayList<String>();
     	
     	String myXBoard = null;
-    	if(xBoard.getText()!=null)
+    	if(xBoard.getText()!=null){
     		myXBoard = xBoard.getText();
+    		xBoardSet.add(myXBoard);
+    	}
     	String myXMarks = null;
     	if(xBoardMarks.getText()!=null)
     		myXMarks = xBoardMarks.getText();
@@ -576,8 +679,10 @@ public class Admission {
     	if(xBoardYear.getValue()!=null)
     		myXPassYear = xBoardYear.getValue();    	
     	String myXiiBoard = null;
-    	if(xiiBoard.getText()!=null)
+    	if(xiiBoard.getText()!=null){
     		myXiiBoard = xiiBoard.getText();
+    		xiiBoardSet.add(myXiiBoard);
+    	}
     	String myXiiMarks = null;
     	if(xiiBoardMarks.getText()!=null)
     		myXiiMarks= xiiBoardMarks.getText();
@@ -585,11 +690,15 @@ public class Admission {
     	if(xiiBoardYear.getValue()!=null)
     		myXiiPassYear = xiiBoardYear.getValue();    	
     	String myDegree = null;
-    	if(degree.getText()!=null)
+    	if(degree.getText()!=null){
     		myDegree = degree.getText();
+    		graduationDegreeSet.add(myDegree.toUpperCase());
+    	}
     	String myDescipline = null;
-    	if(discipline.getText()!=null)
+    	if(discipline.getText()!=null){
     		myDescipline = discipline.getText();
+    		graduationDisSet.add(myDescipline.toUpperCase());
+    	}
     	String myCollege = null;
     	if(collegeName.getText()!=null)
     		myCollege = collegeName.getText();
@@ -600,8 +709,10 @@ public class Admission {
     	if(city.getText()!=null)
     		myCity = city.getText();
     	String myState = null;
-    	if(state.getValue()!=null)
+    	if(state.getValue()!=null){
     		myState = state.getValue();
+    		graduationStateSet.add(myState.toUpperCase());
+    	}
     	int myGraduateYear = 0;
     	if(graduateYear.getValue()!=null)
     		myGraduateYear  = graduateYear.getValue();
@@ -626,13 +737,12 @@ public class Admission {
 		int myCgpaBasis = 0;
 		if(cgpabasis.getValue()!=null)
 			myCgpaBasis = cgpabasis.getValue();
-		int myMarks = 0;
+		Float myMarks = null;
 		if(myCgpaOrMarks=="Marks"){
 	    	if(marksVal.getText()!=null){
 	    		try{
-	    			String blah = marksVal.getText();
-	    			myMarks= Integer.parseInt(blah);
-	    			if(myMarks>100){
+	    			myMarks= Float.parseFloat(marksVal.getText());
+	    			if(myMarks>100 || myMarks<0){
 	    				errors.add("invalid marks in graduation");
 	    			}
 	    		}catch(NumberFormatException e){
@@ -672,11 +782,15 @@ public class Admission {
     	if(pgCity.getText()!=null)
     		myPgCity = pgCity.getText();
     	String myPgState = null;
-    	if(pgState.getText()!=null)
+    	if(pgState.getText()!=null){
     		myPgState = pgState.getText();
+    		postGraduationStateSet.add(myPgState.toUpperCase());
+    	}
     	String myPgDis = null;
-		if(pgDis.getText()!=null)
+		if(pgDis.getText()!=null){
 			myPgDis = pgDis.getText();
+			postGraduationDisSet.add(myPgDis.toUpperCase());
+		}
 		String myPgDegree = null;
 		if(pgDegree.getText()!=null)
 			myPgDegree = pgDegree.getText();
@@ -725,50 +839,49 @@ public class Admission {
 //    	Gate
 		boolean myGate = gateExam.isSelected();
 		if(myGate){
-		String myGateArea = null;
-		int myGateMarks = 0;
-		int myGateYear = 0;
-		int myGateScore = 0;
-		int myGateRank = 0;
-		if(gateArea.getText()!=null)
-			myGateArea = gateArea.getText();
-		if(gateMarks.getText()!=null){
-			try{
-				myGateMarks = Integer.parseInt(gateMarks.getText());
-			}catch (NumberFormatException e){
-				errors.add("Invalid Gate Marks");
+			String myGateArea = null;
+			int myGateMarks = 0;
+			int myGateYear = 0;
+			int myGateScore = 0;
+			int myGateRank = 0;
+			if(gateArea.getText()!=null)
+				myGateArea = gateArea.getText();
+			if(gateMarks.getText()!=null){
+				try{
+					myGateMarks = Integer.parseInt(gateMarks.getText());
+				}catch (NumberFormatException e){
+					errors.add("Invalid Gate Marks");
+				}
+				
 			}
-			
-		}
-		if(gateYear.getText()!=null){
-			try{
-				myGateYear = Integer.parseInt(gateYear.getText());
-			}catch (NumberFormatException e){
-				errors.add("Invalid Gate Year");
+			if(gateYear.getText()!=null){
+				try{
+					myGateYear = Integer.parseInt(gateYear.getText());
+				}catch (NumberFormatException e){
+					errors.add("Invalid Gate Year");
+				}
 			}
-		}
-		if(gateScore.getText()!=null){
-			try{
-				myGateScore = Integer.parseInt(gateScore.getText());
-			}catch (NumberFormatException e){
-				errors.add("Invalid Gate Score");
+			if(gateScore.getText()!=null){
+				try{
+					myGateScore = Integer.parseInt(gateScore.getText());
+				}catch (NumberFormatException e){
+					errors.add("Invalid Gate Score");
+				}
 			}
-		}
-
-		if(gateRank.getText()!=null){
-			try{
-				myGateRank = Integer.parseInt(gateRank.getText());
-			}catch (NumberFormatException e){
-				errors.add("Invalid Gate Rank");
+	
+			if(gateRank.getText()!=null){
+				try{
+					myGateRank = Integer.parseInt(gateRank.getText());
+				}catch (NumberFormatException e){
+					errors.add("Invalid Gate Rank");
+				}
 			}
-		}
-		register.setGate(true);
-		register.setGateArea(myGateArea);
-		register.setGateMarks(myGateMarks);
-		register.setGateScore(myGateScore);
-		register.setGateRank(myGateRank);
-		register.setGateYear(myGateYear);
-
+			register.setGate(true);
+			register.setGateArea(myGateArea);
+			register.setGateMarks(myGateMarks);
+			register.setGateScore(myGateScore);
+			register.setGateRank(myGateRank);
+			register.setGateYear(myGateYear);
 		}
 		String myAchievements = null;
 		if(achievements.getText()!=null){
@@ -789,7 +902,7 @@ public class Admission {
 			catch(NumberFormatException e){
 				errors.add("Add Xth Board Marks in %age");				
 			}
-			if(op1 > 100.0)
+			if(op1 > 100.0 || op1<0)
 				errors.add("Add Xth Board Marks in %age");
 			op1 = (float)0;
 		}
@@ -846,13 +959,14 @@ public class Admission {
     		}
 		}
 		else{
+			registered.setVisible(false);
     		errorsEi.setStyle("-fx-text-fill: green;");
     		errorsEi.setText("Educational Information Submitted. Please Submit now.");
 			register.setxBoard(myXBoard);
 			register.setxMarks(Integer.parseInt(myXMarks));
 			register.setxPassYear(myXPassYear);
 			register.setXiiBoard(myXiiBoard);
-			register.setXiiMarks(Integer.parseInt(myXiiMarks));
+			register.setXiiMarks(Float.parseFloat(myXiiMarks));
 			register.setXiiPassYear(myXiiPassYear);
 			register.setGraduateDegree(myDegree);
 			register.setGraduateDis(myDescipline);
@@ -870,7 +984,8 @@ public class Admission {
 			else{
 				register.setGraduateMarks(true);
 				register.setGraduateCGPA(false);
-				register.setGraduateMarksVal(myMarks);
+				if(myMarks!=null)
+					register.setGraduateMarksVal(myMarks);
 			}
 			if(isEcePhd){
 				register.setApplyECEPhD("true");
@@ -905,8 +1020,14 @@ public class Admission {
 			}
 			else
 				register.setGate(false);		
+
+			flag+=1;
+			if(flag==2)
+				submit.setDisable(false);
+			educationGrid.setDisable(true);
+			scrollpane.setVvalue(0.0);
+			tabpane.getSelectionModel().select(4);
 		}
-		
     }
     
     public void submitFeedback(){    		
@@ -914,8 +1035,10 @@ public class Admission {
     
     public void register() throws IOException, ClassNotFoundException{
 		//read file to get the latest rollnumber
-    	java.util.Date date= new java.util.Date();
+
+    	Date date= new java.util.Date();
     	register.setDate(new Timestamp(date.getTime()));
+    	
         File file = new File("./src/db/rollno.txt");        	
         String roll = "2015000";
         
@@ -930,7 +1053,7 @@ public class Admission {
         }
         rolln = Integer.parseInt(roll);
         rolln++;
-        
+        register.setRollnum(rolln);
     	//append roll number in the rollno.txt
         try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("./src/db/rollno.txt", true)))) {
             out.println(rolln);
@@ -953,13 +1076,13 @@ public class Admission {
 				}
 			}
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("data file coudnot found");
+//			e.printStackTrace();
 		} catch (EOFException ex) {  //This exception will be caught when EOF is reached
             System.out.println("End of file reached.");
 		}catch (ClassNotFoundException ex) {
-            ex.printStackTrace();
-        } finally {
+            System.out.println("class not found at line 1083");
+        }finally {
             try {
                 if (ois != null) {
                     ois.close();
@@ -975,7 +1098,7 @@ public class Admission {
     		FileOutputStream fout = new FileOutputStream("./src/db/data.txt");
     		ObjectOutputStream oos = new ObjectOutputStream(fout);
     		for(int i=0; i<prevStudents.size(); i++){
-    			oos.writeObject(s);
+    			oos.writeObject(prevStudents.get(i));
     		}
     		oos.writeObject(register);
     		oos.close();
@@ -987,6 +1110,130 @@ public class Admission {
     		   System.out.println("Could not write in data file");
     	   }
         
+
+        
+        
+        try {
+			File gdeg = new File("./src/db/filters/graduationDegree.txt");
+			FileWriter fw = new FileWriter(gdeg.getAbsoluteFile());
+			BufferedWriter bw = new BufferedWriter(fw);
+			for (Iterator<String> it = graduationDegreeSet.iterator(); it.hasNext(); ) {
+				String f = it.next();
+				bw.write(f+"\n");
+			}
+			bw.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}        
+        try {
+			File pgdeg = new File("./src/db/filters/postGraduationDegree.txt");
+			FileWriter fw = new FileWriter(pgdeg.getAbsoluteFile());
+			BufferedWriter bw = new BufferedWriter(fw);
+			for (Iterator<String> it = postGraduationDegreeSet.iterator(); it.hasNext(); ) {
+				String f = it.next();
+				bw.write(f+"\n");
+			}
+			bw.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}        
+        try {
+			File gdis = new File("./src/db/filters/graduationDis.txt");
+			FileWriter fw = new FileWriter(gdis.getAbsoluteFile());
+			BufferedWriter bw = new BufferedWriter(fw);
+			for (Iterator<String> it = graduationDisSet.iterator(); it.hasNext(); ) {
+				String f = it.next();
+				bw.write(f+"\n");
+			}
+			bw.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}        
+        try {
+			File pgdis = new File("./src/db/filters/postGraduationDis.txt");
+			FileWriter fw = new FileWriter(pgdis.getAbsoluteFile());
+			BufferedWriter bw = new BufferedWriter(fw);
+			for (Iterator<String> it = postGraduationDisSet.iterator(); it.hasNext(); ) {
+				String f = it.next();
+				bw.write(f+"\n");
+			}
+			bw.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}        
+        try {
+			File gst = new File("./src/db/filters/graduationState.txt");
+			FileWriter fw = new FileWriter(gst.getAbsoluteFile());
+			BufferedWriter bw = new BufferedWriter(fw);
+			for (Iterator<String> it = graduationStateSet.iterator(); it.hasNext(); ) {
+				String f = it.next();
+				bw.write(f+"\n");
+			}
+			bw.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}        
+        try {
+			File pgst = new File("./src/db/filters/postGgraduationState.txt");
+			FileWriter fw = new FileWriter(pgst.getAbsoluteFile());
+			BufferedWriter bw = new BufferedWriter(fw);
+			for (Iterator<String> it = postGraduationStateSet.iterator(); it.hasNext(); ) {
+				String f = it.next();
+				bw.write(f+"\n");
+			}
+			bw.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}        
+        try {
+			File xb = new File("./src/db/filters/xBoard.txt");
+			FileWriter fw = new FileWriter(xb.getAbsoluteFile());
+			BufferedWriter bw = new BufferedWriter(fw);
+			for (Iterator<String> it = xBoardSet.iterator(); it.hasNext(); ) {
+				String f = it.next();
+				bw.write(f+"\n");
+			}
+			bw.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}        
+        try {
+			File xiib = new File("./src/db/filters/xiiBoard.txt");
+			FileWriter fw = new FileWriter(xiib.getAbsoluteFile());
+			BufferedWriter bw = new BufferedWriter(fw);
+			for (Iterator<String> it = xiiBoardSet.iterator(); it.hasNext(); ) {
+				String f = it.next();
+				bw.write(f+"\n");
+			}
+			bw.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}        
+        
+        
+
+        FileWriter fw = new FileWriter("./src/db/phd"+register.getRollnum()+".txt");        
+        for (Field field : register.getClass().getDeclaredFields()) {
+            field.setAccessible(true);
+            String name = field.getName();
+            Object value = null;
+			try {
+				value = field.get(register);
+			} catch (IllegalArgumentException | IllegalAccessException e) {
+				e.printStackTrace();
+			}
+            fw.write(name+ " "+ value+"\n");
+        }
+     
+    	fw.close();
+        
+        
+        if(register.getCv()!=null)
+        	copyFileUsingStream(register.getCv(), "./src/db/cv/"+register.getRollnum()+"_CV.pdf");
+        if(register.getSop()!=null)
+        	copyFileUsingStream(register.getSop(), "./src/db/sop/"+register.getRollnum()+"_SOP.pdf");
+        registered.setText("Your Enrollemnt Number is PhD"+register.getRollnum());
+    	registered.setVisible(true);
     }
  
     
@@ -1036,29 +1283,70 @@ public class Admission {
     		gate.setVisible(false);
     	}
     }
+    
     public void submitCV(){
     	FileChooser fileChooser = new FileChooser();
     	fileChooser.setTitle("Open File");
+
+
     	File file = fileChooser.showOpenDialog(null); // you could pass a stage reference here if you wanted.
     	if (file != null){
-    		register.setCv(file.toString());
-    		chosenCV.setTextFill(Color.GREEN);
-    		chosenCV.setText(file.getName());
-    		cv.setText("Update CV");
+    		String ext = "";
+            int i = file.getName().lastIndexOf('.');
+            if (i > 0) {
+                ext = file.getName().substring(i+1);
+            }
+            if(ext.toLowerCase()=="pdf"){
+	    		register.setCv(file.toString());
+	    		chosenCV.setTextFill(Color.GREEN);
+	    		chosenCV.setText(file.getName());
+	    		cv.setText("Update CV");
+            }
+            else{
+	    		chosenCV.setTextFill(Color.RED);
+            	chosenCV.setText("Please upload a PDF file");
+            }
     	}
-    	
     }
     public void submitSop(){
     	FileChooser fileChooser = new FileChooser();
     	fileChooser.setTitle("Open File");
     	File file = fileChooser.showOpenDialog(null); // you could pass a stage reference here if you wanted.
-    	if (file != null){
+		String ext = "";
+        int i = file.getName().lastIndexOf('.');
+        if (i > 0) {
+            ext = file.getName().substring(i+1);
+        }
+        if(ext.toLowerCase()=="pdf"){
     		register.setSop(file.toString());
     		chosenSop.setTextFill(Color.GREEN);
     		chosenSop.setText(file.getName());
     		sop.setText("Update SOP");
-    	}
-    	
+        }
+        else{
+    		chosenSop.setTextFill(Color.RED);
+        	chosenSop.setText("Please upload a PDF file");
+        }
+
+    }
+    
+    private static void copyFileUsingStream(String sourceStr, String destStr) throws IOException {
+        File source = new File(sourceStr);
+        File dest = new File(destStr);
+    	InputStream is = null;
+        OutputStream os = null;
+        try {
+            is = new FileInputStream(source);
+            os = new FileOutputStream(dest);
+            byte[] buffer = new byte[1024];
+            int length;
+            while ((length = is.read(buffer)) > 0) {
+                os.write(buffer, 0, length);
+            }
+        } finally {
+            is.close();
+            os.close();
+        }
     }
     
 

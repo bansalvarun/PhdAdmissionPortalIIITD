@@ -14,3 +14,5 @@
 1442360726392	Convert local variable 'ois' to field
 1442419231241	Encapsulate field 'date'
 1442421821923	Encapsulate field 'achievments'
+1442425186874	Encapsulate field 'cv'
+1442425192926	Encapsulate field 'sop'

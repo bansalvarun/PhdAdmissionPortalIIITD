@@ -133,6 +133,7 @@ public class Controller {
 		String line;
 		String list[];
 		student.setEmail(email.getText());
+		
 		student.setName(name.getText());
 		//student.setRollnum(enrollment.getText());
 		
@@ -151,13 +152,15 @@ public class Controller {
 			
 		}
 		
-		if(group3.getSelectedToggle()!=null){
+		/*if(group3.getSelectedToggle()!=null){
 			line=group3.getSelectedToggle().toString();
 			list=line.split("'");
 			LocalDate date = DOB.getValue();
 			student.setDob(date.toString());
 			
 		}
+		*/
+		
 		
 		student.setPhdStream(combo2.getValue());
 		student.setGraduateDegree(combo3.getValue());
@@ -186,6 +189,65 @@ public class Controller {
 		}
 		
 		/////////
+		
+		try {
+			applicant=read();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		
+		
+		///////// filters
+		
+		if(student.getEmail().equals("")){
+			
+		}
+		else if(student.getEmail().equals(applicant.getEmail())){
+			System.out.println("email match");
+		}
+		
+		if(student.getName().equals("")){
+			
+		}
+		else if(student.getName().equals(applicant.getName())){
+			System.out.println("name match");
+		}
+		
+		// Roll NO
+		
+		if(student.getCategory()==null){
+			
+		}
+		else if(student.getCategory().equals(applicant.getCategory())){
+			System.out.println("category match");
+		}
+		
+		if(student.getGender()==null){
+			
+		}
+		else if(student.getGender().equals(applicant.getGender())){
+			System.out.println("gender match");
+		}
+		
+		if(student.getIsPhysicallyDisabled()==null){
+			
+		}
+		else if(student.getIsPhysicallyDisabled().equals(applicant.getIsPhysicallyDisabled())){
+			System.out.println("PD match");
+		}
+		
+		//// Date of Birth
+		
+		
+		
+		
+		
+		
 		
 		
 		
