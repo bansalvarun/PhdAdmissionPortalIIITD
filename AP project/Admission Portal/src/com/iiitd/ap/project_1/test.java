@@ -17,11 +17,11 @@ public class test {
 			fin = new FileInputStream("./src/db/data.txt");
 			ois = new ObjectInputStream(fin);
 			s= (Student) ois.readObject();
+			System.out.println(s.getName());
 
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println(s.getName());
 	}
 }

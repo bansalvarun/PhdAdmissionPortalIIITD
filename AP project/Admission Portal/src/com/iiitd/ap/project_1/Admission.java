@@ -825,7 +825,7 @@ public class Admission {
     		}
 		}
 		else{
-    		errorsPI.setStyle("-fx-text-fill: green;");
+    		errorsEi.setStyle("-fx-text-fill: green;");
     		errorsEi.setText("Educational Information Submitted. Please Submit now.");
 			register.setxBoard(myXBoard);
 			register.setxMarks(Integer.parseInt(myXMarks));
@@ -907,6 +907,8 @@ public class Admission {
         rolln = Integer.parseInt(roll);
         rolln++;
         
+        
+        
     	//append roll number in the rollno.txt
         try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("./src/db/rollno.txt", true)))) {
             out.println(rolln);
@@ -919,12 +921,15 @@ public class Admission {
     		ObjectOutputStream oos = new ObjectOutputStream(fout);   
     		oos.writeObject(register);
     		
+    		
     		oos.close();
     		System.out.println("Done");
+    		System.out.println(register.getName());
     		   
     	   }catch(Exception ex){
     		   System.out.println("Could not write in file");
     	   }
+        
     }
  
     
