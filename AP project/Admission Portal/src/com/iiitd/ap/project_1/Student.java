@@ -4,6 +4,7 @@ package com.iiitd.ap.project_1;
 
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -21,7 +22,7 @@ public class Student implements Serializable{
 	private String gender;
 	private String category;
 	private String isPhysicallyDisabled;
-	private String dob;
+	private LocalDate dob;
 	private String isDP;
 	private String father;
 	private String nation;
@@ -84,7 +85,10 @@ public class Student implements Serializable{
 	private int gateScore;
 	private int gateRank;
 	
+	private String achievments;
+	
 	private Date date;
+	
 	
 	public String getEmail() {
 		return email;
@@ -146,10 +150,10 @@ public class Student implements Serializable{
 	public void setIsPhysicallyDisabled(String isPhysicallyDisabled) {
 		this.isPhysicallyDisabled = isPhysicallyDisabled;
 	}
-	public String getDob() {
+	public LocalDate getDob() {
 		return dob;
 	}
-	public void setDob(String dob) {
+	public void setDob(LocalDate dob) {
 		this.dob = dob;
 	}
 	public String getIsDP() {
@@ -451,6 +455,12 @@ public class Student implements Serializable{
 	}
 	public void setDate(Date date) {
 		this.date = date;
+	}
+	public String getAchievments() {
+		return achievments;
+	}
+	public void setAchievments(String achievments) {
+		this.achievments = achievments;
 	}
 	
 	

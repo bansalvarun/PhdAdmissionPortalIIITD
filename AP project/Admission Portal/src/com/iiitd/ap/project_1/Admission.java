@@ -15,7 +15,10 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.Year;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Locale;
 
 import javafx.fxml.FXML;
@@ -448,9 +451,9 @@ public class Admission {
     	String isPhyDisabled = null;
 		if(phyDisabled!=null)
 			isPhyDisabled = phyDisabled.getText();
-    	String myDOB = null;
+    	LocalDate myDOB = null;
 		if(dob.getValue()!=null)
-			myDOB = dob.getValue().toString();
+			myDOB = dob.getValue();
 		RadioButton cwdpAction = (RadioButton)war.getSelectedToggle();    	
     	String myWar = null;
 		if(cwdpAction!=null)
@@ -493,9 +496,10 @@ public class Admission {
     	if(isPhyDisabled==null){
     		errors.add("Select Physically Disabled option");    		
     	}
-    	if(myDOB==null){
-    		errors.add("Add your date of birth");    		
-    	}
+//    	dob is not mandatory
+//    	if(myDOB.){
+//    		errors.add("Add your date of birth");    		
+//    	}
     	if(myWar==null){
     		errors.add("'Children/War Widows of Defence Personnel killed/Disabled in Action' is mandatory");    		
     	}
@@ -761,10 +765,10 @@ public class Admission {
 
 		}
 		String myAchievements = null;
-		if(achievements.getText()!=null)
+		if(achievements.getText()!=null){
 			myAchievements = achievements.getText();
-		
-		
+			register.setAchievments(myAchievements);
+		}
 		if(myXBoard.isEmpty()){
 			errors.add("Add Xth Board");
 		}
