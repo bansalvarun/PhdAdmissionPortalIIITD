@@ -1,0 +1,519 @@
+package com.iiitd.ap.project_1;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+
+@SuppressWarnings("serial")
+public class Student implements Serializable{
+
+	//	private static final long serialVersionUID = -3505661913054276757L;
+	private String email;
+	private String name;
+	private int rollnum;
+	private String addressOfCorrespondence;
+	private int Mobile;
+	private String phdStream;
+	private ArrayList<String> phdAP = new ArrayList<String>();
+	private String gender;
+	private String category;
+	private String isPhysicallyDisabled;
+	private String dob;
+	private String isDP;
+	private String father;
+	private String nation;
+	private String permanentAddress;
+	private int pinCode;
+	
+	private String xBoard;
+	private int xMarks;
+	private int xPassYear;
+	private String xiiBoard;
+	private int xiiMarks;
+	private int xiiPassYear;
+	
+//	graduate info
+	private String graduateDegree;
+	private String graduateDis;
+	private String graduateCollege;
+	private String graduateUniversity;
+	private String graduateCity;
+	private String graduateState;
+	private int graduateYear;
+	private String isGraduateCGPA;
+	private int graduateCGPA_Basis;
+	private int graduateCGPA;
+	private String isGraduateMarks;
+	private int graduateMarks;
+	
+	
+	private String applyECEPhD;
+	private String completedPG;
+	private String otherAcademicDegrees;
+	private String takenGateExam;
+	
+//  ece PHD preference
+	private ArrayList<String>ecePhdPref = new ArrayList<>();
+	
+//	postGraduate info
+	private String postGraduateDegree;
+	private String postGraduateDis;
+	private String postGraduateCollege;
+	private String pgThesis;
+	private String postGraduateCity;
+	private String postGraduateState;
+	private int postGraduateYear;
+	private String isPostGraduateCGPA;
+	private int postGraduateCGPA_Basis;
+	private int postGraduateCGPA;
+	String isPostGraduateMarks;
+	private int postGraduateMarks;
+	
+//	other degree info
+	private ArrayList<String> otherDegrees = new ArrayList<String>();
+	
+	private String achievements;
+	
+	public Student(){
+		
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getRollnum() {
+		return rollnum;
+	}
+
+	public void setRollnum(int rollnum) {
+		this.rollnum = rollnum;
+	}
+
+	public String getAddressOfCorrespondence() {
+		return addressOfCorrespondence;
+	}
+
+	public void setAddressOfCorrespondence(String addressOfCorrespondence) {
+		this.addressOfCorrespondence = addressOfCorrespondence;
+	}
+
+	public int getMobile() {
+		return Mobile;
+	}
+
+	public void setMobile(int mobile) {
+		Mobile = mobile;
+	}
+
+	public String getPhdStream() {
+		return phdStream;
+	}
+
+	public void setPhdStream(String phdStream) {
+		this.phdStream = phdStream;
+	}
+
+	public ArrayList<String> getPhdAP() {
+		return phdAP;
+	}
+
+	public void setPhdAP(ArrayList<String> phdAP) {
+		this.phdAP = phdAP;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+	public String isPhysicallyDisabled() {
+		return isPhysicallyDisabled;
+	}
+
+	public void setPhysicallyDisabled(String isPhysicallyDisabled) {
+		this.isPhysicallyDisabled = isPhysicallyDisabled;
+	}
+
+	public String getDob() {
+		return dob;
+	}
+
+	public void setDob(String dob) {
+		this.dob = dob;
+	}
+
+	public String isDP() {
+		return isDP;
+	}
+
+	public void setDP(String isDP) {
+		this.isDP = isDP;
+	}
+
+	public String getFather() {
+		return father;
+	}
+
+	public void setFather(String father) {
+		this.father = father;
+	}
+
+	public String getNation() {
+		return nation;
+	}
+
+	public void setNation(String nation) {
+		this.nation = nation;
+	}
+
+	public String getPermanentAddress() {
+		return permanentAddress;
+	}
+
+	public void setPermanentAddress(String permanentAddress) {
+		this.permanentAddress = permanentAddress;
+	}
+
+	public int getPinCode() {
+		return pinCode;
+	}
+
+	public void setPinCode(int pinCode) {
+		this.pinCode = pinCode;
+	}
+
+	public String getxBoard() {
+		return xBoard;
+	}
+
+	public void setxBoard(String xBoard) {
+		this.xBoard = xBoard;
+	}
+
+	public int getxMarks() {
+		return xMarks;
+	}
+
+	public void setxMarks(int xMarks) {
+		this.xMarks = xMarks;
+	}
+
+	public int getxPassYear() {
+		return xPassYear;
+	}
+
+	public void setxPassYear(int xPassYear) {
+		this.xPassYear = xPassYear;
+	}
+
+	public String getXiiBoard() {
+		return xiiBoard;
+	}
+
+	public void setXiiBoard(String xiiBoard) {
+		this.xiiBoard = xiiBoard;
+	}
+
+	public int getXiiMarks() {
+		return xiiMarks;
+	}
+
+	public void setXiiMarks(int xiiMarks) {
+		this.xiiMarks = xiiMarks;
+	}
+
+	public int getXiiPassYear() {
+		return xiiPassYear;
+	}
+
+	public void setXiiPassYear(int xiiPassYear) {
+		this.xiiPassYear = xiiPassYear;
+	}
+
+	public String getGraduateDegree() {
+		return graduateDegree;
+	}
+
+	public void setGraduateDegree(String graduateDegree) {
+		this.graduateDegree = graduateDegree;
+	}
+
+	public String getGraduateDis() {
+		return graduateDis;
+	}
+
+	public void setGraduateDis(String graduateDis) {
+		this.graduateDis = graduateDis;
+	}
+
+	public String getGraduateCollege() {
+		return graduateCollege;
+	}
+
+	public void setGraduateCollege(String graduateCollege) {
+		this.graduateCollege = graduateCollege;
+	}
+
+	public String getGraduateUniversity() {
+		return graduateUniversity;
+	}
+
+	public void setGraduateUniversity(String graduateUniversity) {
+		this.graduateUniversity = graduateUniversity;
+	}
+
+	public String getGraduateCity() {
+		return graduateCity;
+	}
+
+	public void setGraduateCity(String graduateCity) {
+		this.graduateCity = graduateCity;
+	}
+
+	public String getGraduateState() {
+		return graduateState;
+	}
+
+	public void setGraduateState(String graduateState) {
+		this.graduateState = graduateState;
+	}
+
+	public int getGraduateYear() {
+		return graduateYear;
+	}
+
+	public void setGraduateYear(int graduateYear) {
+		this.graduateYear = graduateYear;
+	}
+
+	public String isGraduateCGPA() {
+		return isGraduateCGPA;
+	}
+
+	public void setGraduateCGPA(String isGraduateCGPA) {
+		this.isGraduateCGPA = isGraduateCGPA;
+	}
+
+	public int getGraduateCGPA_Basis() {
+		return graduateCGPA_Basis;
+	}
+
+	public void setGraduateCGPA_Basis(int graduateCGPA_Basis) {
+		this.graduateCGPA_Basis = graduateCGPA_Basis;
+	}
+
+	public int getGraduateCGPA() {
+		return graduateCGPA;
+	}
+
+	public void setGraduateCGPA(int graduateCGPA) {
+		this.graduateCGPA = graduateCGPA;
+	}
+
+	public String isGraduateMarks() {
+		return isGraduateMarks;
+	}
+
+	public void setGraduateMarks(String isGraduateMarks) {
+		this.isGraduateMarks = isGraduateMarks;
+	}
+
+	public int getGraduateMarks() {
+		return graduateMarks;
+	}
+
+	public void setGraduateMarks(int graduateMarks) {
+		this.graduateMarks = graduateMarks;
+	}
+
+	public String isApplyECEPhD() {
+		return applyECEPhD;
+	}
+
+	public void setApplyECEPhD(String applyECEPhD) {
+		this.applyECEPhD = applyECEPhD;
+	}
+
+	public String isCompletedPG() {
+		return completedPG;
+	}
+
+	public void setCompletedPG(String completedPG) {
+		this.completedPG = completedPG;
+	}
+
+	public String isOtherAcademicDegrees() {
+		return otherAcademicDegrees;
+	}
+
+	public void setOtherAcademicDegrees(String otherAcademicDegrees) {
+		this.otherAcademicDegrees = otherAcademicDegrees;
+	}
+
+	public String isTakenGateExam() {
+		return takenGateExam;
+	}
+
+	public void setTakenGateExam(String takenGateExam) {
+		this.takenGateExam = takenGateExam;
+	}
+
+	public String getPostGraduateDegree() {
+		return postGraduateDegree;
+	}
+
+	public void setPostGraduateDegree(String postGraduateDegree) {
+		this.postGraduateDegree = postGraduateDegree;
+	}
+
+	public String getPostGraduateDis() {
+		return postGraduateDis;
+	}
+
+	public void setPostGraduateDis(String postGraduateDis) {
+		this.postGraduateDis = postGraduateDis;
+	}
+
+	public String getPostGraduateCollege() {
+		return postGraduateCollege;
+	}
+
+	public void setPostGraduateCollege(String postGraduateCollege) {
+		this.postGraduateCollege = postGraduateCollege;
+	}
+
+	public String getpgThesis() {
+		return pgThesis;
+	}
+
+	public void setpgThesis(String pgThesis) {
+		this.pgThesis = pgThesis;
+	}
+
+	public String getPostGraduateCity() {
+		return postGraduateCity;
+	}
+
+	public void setPostGraduateCity(String postGraduateCity) {
+		this.postGraduateCity = postGraduateCity;
+	}
+
+	public String getPostGraduateState() {
+		return postGraduateState;
+	}
+
+	public void setPostGraduateState(String postGraduateState) {
+		this.postGraduateState = postGraduateState;
+	}
+
+	public int getPostGraduateYear() {
+		return postGraduateYear;
+	}
+
+	public void setPostGraduateYear(int postGraduateYear) {
+		this.postGraduateYear = postGraduateYear;
+	}
+
+	public String isPostGraduateCGPA() {
+		return isPostGraduateCGPA;
+	}
+
+	public void setPostGraduateCGPA(String isPostGraduateCGPA) {
+		this.isPostGraduateCGPA = isPostGraduateCGPA;
+	}
+
+	public int getPostGraduateCGPA_Basis() {
+		return postGraduateCGPA_Basis;
+	}
+
+	public void setPostGraduateCGPA_Basis(int postGraduateCGPA_Basis) {
+		this.postGraduateCGPA_Basis = postGraduateCGPA_Basis;
+	}
+
+	public int getPostGraduateCGPA() {
+		return postGraduateCGPA;
+	}
+
+	public void setPostGraduateCGPA(int postGraduateCGPA) {
+		this.postGraduateCGPA = postGraduateCGPA;
+	}
+
+	public String isPostGraduateMarks() {
+		return isPostGraduateMarks;
+	}
+
+	public void setPostGraduateMarks(String isPostGraduateMarks) {
+		this.isPostGraduateMarks = isPostGraduateMarks;
+	}
+
+	public int getPostGraduateMarks() {
+		return postGraduateMarks;
+	}
+
+	public void setPostGraduateMarks(int postGraduateMarks) {
+		this.postGraduateMarks = postGraduateMarks;
+	}
+
+	public ArrayList<String> getOtherDegrees() {
+		return otherDegrees;
+	}
+
+	public void setOtherDegrees(ArrayList<String> otherDegrees) {
+		this.otherDegrees = otherDegrees;
+	}
+
+	public String getAchievements() {
+		return achievements;
+	}
+
+	public void setAchievements(String achievements) {
+		this.achievements = achievements;
+	}
+
+	public ArrayList<String> getEcePhdPref() {
+		return ecePhdPref;
+	}
+
+	public void setEcePhdPref(ArrayList<String> ecePhdPref) {
+		this.ecePhdPref = ecePhdPref;
+	}
+
+	
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

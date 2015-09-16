@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="anchorPane" prefHeight="1000.0" prefWidth="790.0" style="-fx-background-color : white;&#10;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+  <AnchorPane prefHeight="50.0" prefWidth="200.0" style="-fx-background-color : #666666;&#10;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+    <children>
+      <HBox disable="false" maxHeight="50.0" minHeight="50.0" opacity="1.0" prefHeight="50.0" prefWidth="567.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <children>
+          <AnchorPane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+            <children>
+              <Label alignment="CENTER_LEFT" contentDisplay="LEFT" minHeight="37.0" prefHeight="51.0" prefWidth="320.0" text="IIITD    Admissions" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="-1.0">
+                <font>
+                  <Font size="36.0" />
+                </font>
+              </Label>
+              <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="51.0" prefWidth="202.0" text="FAQ    Contact" textAlignment="RIGHT" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+                <font>
+                  <Font size="15.0" fx:id="x1" />
+                </font>
+              </Label>
+              <Label alignment="CENTER_LEFT" contentDisplay="LEFT" layoutX="97.0" layoutY="-4.0" minHeight="37.0" prefHeight="51.0" prefWidth="18.0" text="|" textAlignment="CENTER" textFill="WHITE">
+                <font>
+                  <Font size="35.0" />
+                </font>
+              </Label>
+              <ImageView fitHeight="50.000099999997474" fitWidth="83.68217419994694" pickOnBounds="true" preserveRatio="true" style="" visible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="7.0" AnchorPane.topAnchor="0.0">
+                <image>
+                  <Image url="@style1greyscalemid.png" />
+                </image>
+              </ImageView>
+            </children>
+          </AnchorPane>
+        </children>
+      </HBox>
+    </children>
+  </AnchorPane>
+  <AnchorPane maxWidth="800.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color : white;&#10;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+    <children>
+      <ScrollPane fitToHeight="true" fitToWidth="true" maxWidth="-1.0" prefHeight="-1.0" prefViewportHeight="1000.0" prefViewportWidth="500.0" prefWidth="-1.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <content>
+          <AnchorPane maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: white;">
+            <children>
+              <AnchorPane focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="-1.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="-1.0" prefWidth="-1.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <children>
+                  <AnchorPane maxWidth="-1.0" prefHeight="40.0" prefWidth="567.0" style="-fx-background-color : white;&#10;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                      <HBox prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <children>
+                          <AnchorPane prefHeight="50.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                            <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="776.0" style="-fx-background-color : #D9EDF7;&#10;" text="Submit button appears on successful completion of all forms fields." textAlignment="RIGHT" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <font>
+                                  <Font size="16.0" />
+                                </font>
+                              </Label>
+                            </children>
+                          </AnchorPane>
+                        </children>
+                      </HBox>
+                    </children>
+                  </AnchorPane>
+                  <AnchorPane maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color : white;&#10;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
+                    <children>
+                      <TabPane prefHeight="900.0" prefWidth="-1.0" style="-fx-background-color: white;" styleClass="floating" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <tabs>
+                          <Tab style="-fx-font-size: 15px;&#10;-fx-background-color: #D1D1D1;" styleClass="" text="Personal Information">
+                            <content>
+                              <AnchorPane id="Content" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: white;">
+                                <children>
+                                  <GridPane alignment="TOP_LEFT" hgap="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="983.0" prefWidth="815.0" style="-fx-background-color: white;" vgap="0.0" AnchorPane.bottomAnchor="-1000.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                    <children>
+                                      <HBox maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                      <Label font="$x1" minHeight="-1.0" prefHeight="-1.0" prefWidth="-1.0" text="Email*" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="0" GridPane.valignment="CENTER" />
+                                      <TextField prefWidth="200.0" promptText="sidharthgupta@gmail.com" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="0">
+                                        <GridPane.margin>
+                                          <Insets right="10.0" fx:id="x2" />
+                                        </GridPane.margin>
+                                      </TextField>
+                                      <Label font="$x1" minHeight="-1.0" prefHeight="-1.0" prefWidth="-1.0" text="Name*" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                                      <TextField prefWidth="200.0" promptText="sidharthgupta@gmail.com" GridPane.columnIndex="1" GridPane.margin="$x2" GridPane.rowIndex="1" />
+                                      <Label font="$x1" minHeight="-1.0" prefHeight="-1.0" prefWidth="151.0" text="Enrollment Number*" textAlignment="RIGHT" wrapText="true" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                                      <Label contentDisplay="LEFT" font="$x1" minHeight="-1.0" prefHeight="-1.0" prefWidth="156.0" text="Address of Correspondence*" textAlignment="RIGHT" wrapText="true" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="TOP" />
+                                      <Label font="$x1" minHeight="-1.0" prefHeight="-1.0" prefWidth="-1.0" text="PhD Stream*" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="TOP">
+                                        <GridPane.margin>
+                                          <Insets top="5.0" fx:id="x3" />
+                                        </GridPane.margin>
+                                      </Label>
+                                      <Label font="$x1" minHeight="-1.0" prefHeight="-1.0" prefWidth="-1.0" text="Gender*" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="5" GridPane.valignment="TOP">
+                                        <GridPane.margin>
+                                          <Insets fx:id="x5" />
+                                        </GridPane.margin>
+                                      </Label>
+                                      <TextField prefWidth="200.0" promptText="sidharthgupta@gmail.com" GridPane.columnIndex="1" GridPane.margin="$x2" GridPane.rowIndex="2" />
+                                      <TextArea prefWidth="200.0" promptText="ABC@xyz" wrapText="true" GridPane.columnIndex="1" GridPane.margin="$x2" GridPane.rowIndex="3" />
+                                      <RadioButton mnemonicParsing="false" selected="false" text="Computer Science" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="TOP">
+                                        <toggleGroup>
+                                          <ToggleGroup fx:id="phd" />
+                                        </toggleGroup>
+                                        <GridPane.margin>
+                                          <Insets top="5.0" fx:id="x3" />
+                                        </GridPane.margin>
+                                      </RadioButton>
+                                      <RadioButton mnemonicParsing="false" selected="false" text="Computational Biology" toggleGroup="$phd" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="4">
+                                        <GridPane.margin>
+                                          <Insets top="35.0" />
+                                        </GridPane.margin>
+                                      </RadioButton>
+                                      <RadioButton mnemonicParsing="false" selected="false" text="Electronics and Communication" toggleGroup="$phd" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="TOP">
+                                        <GridPane.margin>
+                                          <Insets top="25.0" fx:id="x4" />
+                                        </GridPane.margin>
+                                      </RadioButton>
+                                      <RadioButton mnemonicParsing="false" text="Male" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.margin="$x3" GridPane.rowIndex="5" GridPane.valignment="TOP">
+                                        <toggleGroup>
+                                          <ToggleGroup fx:id="gender" />
+                                        </toggleGroup>
+                                      </RadioButton>
+                                      <RadioButton mnemonicParsing="false" text="Female" toggleGroup="$gender" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.margin="$x4" GridPane.rowIndex="5" GridPane.valignment="TOP" />
+                                      <RadioButton mnemonicParsing="false" selected="false" text="General" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.margin="$x3" GridPane.rowIndex="6" GridPane.valignment="TOP">
+                                        <toggleGroup>
+                                          <ToggleGroup fx:id="category" />
+                                        </toggleGroup>
+                                      </RadioButton>
+                                      <RadioButton mnemonicParsing="false" selected="false" text="SC" toggleGroup="$category" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.margin="$x4" GridPane.rowIndex="6" GridPane.valignment="TOP" />
+                                      <RadioButton mnemonicParsing="false" selected="false" text="ST" toggleGroup="$category" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="6" GridPane.valignment="TOP">
+                                        <GridPane.margin>
+                                          <Insets left="50.0" top="25.0" />
+                                        </GridPane.margin>
+                                      </RadioButton>
+                                      <RadioButton mnemonicParsing="false" selected="false" text="OBC" toggleGroup="$category" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="6" GridPane.valignment="TOP">
+                                        <GridPane.margin>
+                                          <Insets left="100.0" top="25.0" />
+                                        </GridPane.margin>
+                                      </RadioButton>
+                                      <Label font="$x1" minHeight="-1.0" prefHeight="-1.0" prefWidth="-1.0" text="Category*" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.margin="$x3" GridPane.rowIndex="6" GridPane.valignment="TOP" />
+                                      <Label font="$x1" text="Physically Disabled*" textAlignment="RIGHT" wrapText="true" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="7" GridPane.valignment="TOP" />
+                                      <Label font="$x1" minHeight="16.3717041015625" prefHeight="17.0" text="Date Of Birth*" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="8" GridPane.valignment="CENTER" />
+                                      <DatePicker fx:id="datepicker" GridPane.halignment="LEFT" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                                      <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" disable="false" font="$x1" maxHeight="120.0" prefHeight="120.0" prefWidth="135.0" text="Children/War Widows of Defence Personnel killed/Disabled in Action*" textAlignment="RIGHT" textOverrun="ELLIPSIS" wrapText="true" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.margin="$x5" GridPane.rowIndex="9" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
+                                      <Label font="$x1" minHeight="16.3714599609375" prefHeight="16.3714599609375" text="Father's Name*" textAlignment="RIGHT" wrapText="false" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="10" GridPane.valignment="CENTER" />
+                                      <RadioButton mnemonicParsing="false" text="Yes" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="7" GridPane.valignment="TOP">
+                                        <toggleGroup>
+                                          <ToggleGroup fx:id="Phydisabled" />
+                                        </toggleGroup>
+                                        <GridPane.margin>
+                                          <Insets top="5.0" fx:id="x3" />
+                                        </GridPane.margin>
+                                      </RadioButton>
+                                      <RadioButton mnemonicParsing="false" text="No" toggleGroup="$Phydisabled" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="7" GridPane.valignment="TOP">
+                                        <GridPane.margin>
+                                          <Insets top="25.0" fx:id="x4" />
+                                        </GridPane.margin>
+                                      </RadioButton>
+                                      <RadioButton mnemonicParsing="false" text="Yes" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="9" GridPane.valignment="TOP">
+                                        <toggleGroup>
+                                          <ToggleGroup fx:id="war" />
+                                        </toggleGroup>
+                                        <GridPane.margin>
+                                          <Insets top="10.0" />
+                                        </GridPane.margin>
+                                      </RadioButton>
+                                      <RadioButton mnemonicParsing="false" text="No" toggleGroup="$war" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="9" GridPane.valignment="CENTER">
+                                        <GridPane.margin>
+                                          <Insets fx:id="x5" />
+                                        </GridPane.margin>
+                                      </RadioButton>
+                                      <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" font="$x1" minHeight="16.3714599609375" prefHeight="40.0" prefWidth="115.0" text="Nationality*" textAlignment="RIGHT" wrapText="false" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="11" GridPane.valignment="CENTER" />
+                                      <Label font="$x1" minHeight="16.3714599609375" prefHeight="50.0" prefWidth="128.0" text="Permanent Address*" textAlignment="RIGHT" wrapText="true" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="12" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
+                                      <Label font="$x1" minHeight="16.3714599609375" prefHeight="16.3717041015625" text="Pin Code" textAlignment="RIGHT" wrapText="false" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="13" GridPane.valignment="CENTER" />
+                                      <TextField maxWidth="300.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="10" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                                      <ChoiceBox minWidth="300.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="11" GridPane.valignment="CENTER">
+                                        <items>
+                                          <FXCollections fx:factory="observableArrayList">
+                                            <String fx:value="Item 1" />
+                                            <String fx:value="Item 2" />
+                                            <String fx:value="Item 3" />
+                                          </FXCollections>
+                                        </items>
+                                      </ChoiceBox>
+                                      <TextArea maxWidth="300.0" prefWidth="200.0" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="12" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                                      <TextField maxWidth="300.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="13" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                                      <Button mnemonicParsing="false" text="Save" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.margin="$x2" GridPane.rowIndex="14" GridPane.valignment="BOTTOM" />
+                                    </children>
+                                    <columnConstraints>
+                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="174.0" minWidth="10.0" prefWidth="135.0" />
+                                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="615.0" minWidth="10.0" prefWidth="523.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                      <RowConstraints maxHeight="38.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                                      <RowConstraints maxHeight="40.0" minHeight="0.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                      <RowConstraints maxHeight="48.0" minHeight="0.0" prefHeight="48.0" vgrow="SOMETIMES" />
+                                      <RowConstraints maxHeight="67.0" minHeight="0.0" prefHeight="67.0" vgrow="SOMETIMES" />
+                                      <RowConstraints maxHeight="75.0" minHeight="0.0" prefHeight="75.0" vgrow="SOMETIMES" />
+                                      <RowConstraints maxHeight="58.0" minHeight="0.0" prefHeight="58.0" vgrow="SOMETIMES" />
+                                      <RowConstraints maxHeight="69.0" minHeight="0.0" prefHeight="69.0" vgrow="SOMETIMES" />
+                                      <RowConstraints maxHeight="50.0" minHeight="0.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                                      <RowConstraints maxHeight="40.0" minHeight="0.0" prefHeight="40.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                      <RowConstraints fillHeight="false" maxHeight="120.0" minHeight="0.0" prefHeight="80.0" valignment="TOP" vgrow="ALWAYS" />
+                                      <RowConstraints maxHeight="40.0" minHeight="0.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                      <RowConstraints maxHeight="40.0" minHeight="0.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                      <RowConstraints maxHeight="70.0" minHeight="0.0" prefHeight="70.0" vgrow="SOMETIMES" />
+                                      <RowConstraints maxHeight="40.0" minHeight="0.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                      <RowConstraints maxHeight="60.0" minHeight="0.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                  </GridPane>
+                                </children>
+                              </AnchorPane>
+                            </content>
+                          </Tab>
+                          <Tab disable="false" style="-fx-font-size: 15px;&#10;-fx-background-color: #D1D1D1;" text="Educational Information">
+                            <content>
+                              <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                            </content>
+                          </Tab>
+                        </tabs>
+                      </TabPane>
+                    </children>
+                  </AnchorPane>
+                </children>
+              </AnchorPane>
+            </children>
+            <padding>
+              <Insets left="50.0" right="50.0" />
+            </padding>
+          </AnchorPane>
+        </content>
+      </ScrollPane>
+    </children>
+  </AnchorPane>
+</AnchorPane>

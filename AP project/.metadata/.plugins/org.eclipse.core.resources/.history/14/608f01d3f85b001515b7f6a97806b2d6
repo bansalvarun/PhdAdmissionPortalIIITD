@@ -1,0 +1,9 @@
+package com.iiitd.ap.project_1;
+
+public class test {
+	public static void main(String[] args){
+		Student s = null;
+		s = com.iiitd.ap.project_1.Student@2b5c10e8;
+		
+	}
+}
