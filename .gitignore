@@ -11,8 +11,8 @@
 hs_err_pid*
 
 
-#*.metadata
-#*.recommenders
+*.metadata
+*.recommenders
 #*.prefs
 #*.plugins
 #*.mylyn
