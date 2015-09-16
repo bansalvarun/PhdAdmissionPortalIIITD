@@ -15,8 +15,6 @@ hs_err_pid*
 *.metadata
 *.recommenders
 *.settings
-*.classpath
-*.project
 *.prefs
 *.plugins
 *.mylyn
