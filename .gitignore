@@ -11,11 +11,11 @@
 hs_err_pid*
 
 
-*.metadata
-*.recommenders
-*.prefs
-*.plugins
-*.mylyn
-*.lock
-*.log
-*.json
+#*.metadata
+#*.recommenders
+#*.prefs
+#*.plugins
+#*.mylyn
+#*.lock
+#*.log
+#*.json
