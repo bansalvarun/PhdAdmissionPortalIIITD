@@ -3,8 +3,6 @@ package com.iiitd.ap.project_1;
 import java.io.IOException;
 
 import javafx.application.Application;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -16,8 +14,6 @@ public class MainAdmin extends Application {
 	
 	private Stage primaryStage;
 	private BorderPane rootlayout;
-	static final ObservableList<Student> data = FXCollections.observableArrayList();
-	
 	@Override
 	
 	
@@ -52,7 +48,6 @@ public class MainAdmin extends Application {
 			ControllerResult controller = loader3.getController();
 			controller.control(this);
 			rootlayout.setCenter(filterresult);
-			
 		}
 		catch(IOException e){
 			e.printStackTrace();

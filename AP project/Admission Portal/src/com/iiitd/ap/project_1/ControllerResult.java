@@ -9,14 +9,7 @@ public class ControllerResult {
 	
 	void control (MainAdmin a){
 		this.object=a;
-		for(Student i : MainAdmin.data){
-			System.out.println("@ "+ i.getName()  +"\n");
-		}
 	}
-	
-	
-	
-	
 	
 	@FXML
 	void backMethod(){
