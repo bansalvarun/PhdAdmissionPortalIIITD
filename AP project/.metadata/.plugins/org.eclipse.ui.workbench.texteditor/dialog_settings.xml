@@ -2,20 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="ach" key="selection"/>
+		<item value="phd" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="phd"/>
+			<item value="phd0"/>
+			<item value="gate"/>
+			<item value="100"/>
+			<item value="&lt;100"/>
 			<item value="ach"/>
 			<item value="marks"/>
 			<item value="year*"/>
-			<item value="exam name"/>
-			<item value="pincode"/>
-			<item value="oadrank"/>
-			<item value="register"/>
-			<item value="postGraduateUniversity"/>
 		</list>
 		<list key="replacehistory">
 			<item value="applicant"/>

@@ -7,7 +7,6 @@
 <fullyQualifiedTypeName name="javafx.scene.control.TextArea"/>
 <fullyQualifiedTypeName name="javafx.scene.control.TabPane"/>
 <fullyQualifiedTypeName name="javafx.scene.control.Tab"/>
-<fullyQualifiedTypeName name="javafx.scene.control.SingleSelectionModel"/>
 <fullyQualifiedTypeName name="javafx.scene.control.Label"/>
 <fullyQualifiedTypeName name="java.io.FileNotFoundException"/>
 <fullyQualifiedTypeName name="javax.xml.xpath.XPath"/>
@@ -20,7 +19,6 @@
 <fullyQualifiedTypeName name="javafx.event.ActionEvent"/>
 <fullyQualifiedTypeName name="javafx.scene.control.TextField"/>
 <fullyQualifiedTypeName name="java.lang.Double"/>
-<fullyQualifiedTypeName name="java.lang.Float"/>
 <fullyQualifiedTypeName name="javafx.scene.control.RadioButton"/>
 <fullyQualifiedTypeName name="javafx.beans.property.adapter.ReadOnlyJavaBeanObjectProperty"/>
 <fullyQualifiedTypeName name="java.lang.Boolean"/>
@@ -30,4 +28,21 @@
 <fullyQualifiedTypeName name="java.lang.NumberFormatException"/>
 <fullyQualifiedTypeName name="com.iiitd.ap.project_1.Student"/>
 <fullyQualifiedTypeName name="com.iiitd.ap.project_1.MainAdmin"/>
+<fullyQualifiedTypeName name="java.awt.Color"/>
+<fullyQualifiedTypeName name="javafx.scene.paint.Paint"/>
+<fullyQualifiedTypeName name="javafx.scene.paint.Color"/>
+<fullyQualifiedTypeName name="javafx.scene.control.SingleSelectionModel"/>
+<fullyQualifiedTypeName name="java.awt.ScrollPane"/>
+<fullyQualifiedTypeName name="javafx.scene.control.ScrollPane"/>
+<fullyQualifiedTypeName name="javax.imageio.spi.RegisterableService"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="java.io.InputStream"/>
+<fullyQualifiedTypeName name="java.io.OutputStream"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="java.lang.Float"/>
+<fullyQualifiedTypeName name="java.util.Locale"/>
+<fullyQualifiedTypeName name="java.util.HashSet"/>
+<fullyQualifiedTypeName name="java.util.Iterator"/>
+<fullyQualifiedTypeName name="java.lang.reflect.Field"/>
+<fullyQualifiedTypeName name="java.time.LocalDate"/>
 </qualifiedTypeNameHistroy>

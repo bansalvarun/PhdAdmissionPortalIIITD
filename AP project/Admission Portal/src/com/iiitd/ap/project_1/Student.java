@@ -89,7 +89,7 @@ public class Student implements Serializable{
 	private String cv=null;
 	private String sop=null;
 	
-	private Date date=null;
+	private LocalDate date=null;
 	
 	
 	public String getEmail() {
@@ -452,10 +452,10 @@ public class Student implements Serializable{
 	public void setGate(boolean gate) {
 		this.gate = gate;
 	}
-	public Date getDate() {
+	public LocalDate getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+	public void setDate(LocalDate date) {
 		this.date = date;
 	}
 	public String getAchievments() {

@@ -1036,8 +1036,8 @@ public class Admission {
     public void register() throws IOException, ClassNotFoundException{
 		//read file to get the latest rollnumber
 
-    	Date date= new java.util.Date();
-    	register.setDate(new Timestamp(date.getTime()));
+    	LocalDate today = LocalDate.now();
+    	register.setDate(today);
     	
         File file = new File("./src/db/rollno.txt");        	
         String roll = "2015000";
