@@ -9,6 +9,8 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+
+import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -80,6 +82,8 @@ public class Controller {
 	private DatePicker ADF;
 	@FXML
 	private DatePicker ADU;
+	LocalDate d2;
+	LocalDate d1;
 	
 	public void control(MainAdmin a){
 		this.object=a;
@@ -123,13 +127,21 @@ public class Controller {
 	
 	@FXML
 	void submitMethod(){
-		submit();
+		try {
+			submit();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		object.result();
 	}
 	
 	
 	@FXML
-	void submit(){
+	void submit()throws IOException,ClassNotFoundException{
 		String line;
 		String list[];
 		student.setEmail(email.getText());
@@ -152,14 +164,13 @@ public class Controller {
 			
 		}
 		
-		/*if(group3.getSelectedToggle()!=null){
-			line=group3.getSelectedToggle().toString();
-			list=line.split("'");
+		if(group3.getSelectedToggle()!=null){
+			
 			LocalDate date = DOB.getValue();
-			student.setDob(date.toString());
+			student.setDob(date);
 			
 		}
-		*/
+		
 		
 		
 		student.setPhdStream(combo2.getValue());
@@ -177,38 +188,76 @@ public class Controller {
 		student.setPostGraduateState(combo10.getValue());
 		
 		
-		LocalDate d1 = ADF.getValue();
-		if(d1!=null){
-			String D1 =d1.toString();
+		if(ADF.getValue()==null){
 			
 		}
-		LocalDate d2 = ADU.getValue();
-		if(d2!=null){
-			String D2=d2.toString();
+		else{
+			LocalDate d1 = ADF.getValue();
+			if(d1!=null){
+				
+				
+			}
+		}
+		
+		if(ADU.getValue()==null){
 			
+		}
+		else{
+			LocalDate d2 = ADU.getValue();
+			if(d2!=null){
+				
+				
+			}
 		}
 		
 		/////////
 		
+		Student applicant = null;
+		FileInputStream fin;
 		try {
-			applicant=read();
-		} catch (ClassNotFoundException e) {
+			fin = new FileInputStream("./src/db/data.txt");
+			ois = new ObjectInputStream(fin);
+			
+			while((applicant= (Student) ois.readObject())!=null){
+				if(applicant instanceof Student){
+					System.out.println(applicant.getName());
+					testFilters(student,applicant);
+				}
+			}
+		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
+		} catch (EOFException ex) {  //This exception will be caught when EOF is reached
+            System.out.println("End of file reached.");
+		}catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        } finally {
+            try {
+                if (ois != null) {
+                    ois.close();
+                }
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
 		
 		
-		///////// filters
+		
+		
+	
+	}
+	
+	
+	void testFilters(Student student, Student applicant){
 		
 		if(student.getEmail().equals("")){
 			
 		}
 		else if(student.getEmail().equals(applicant.getEmail())){
 			System.out.println("email match");
+		}
+		else{
+			return;
 		}
 		
 		if(student.getName().equals("")){
@@ -217,14 +266,31 @@ public class Controller {
 		else if(student.getName().equals(applicant.getName())){
 			System.out.println("name match");
 		}
+		else{
+			return;
+		}
 		
 		// Roll NO
+		
+		if(enrollment.getText().equals("")){
+			
+		}
+		else if(enrollment.getText().toLowerCase().equals("phd"+Integer.toString(applicant.getRollnum()))){
+			System.out.println("Roll number match");
+		}
+		else{
+			
+			return;
+		}
 		
 		if(student.getCategory()==null){
 			
 		}
 		else if(student.getCategory().equals(applicant.getCategory())){
 			System.out.println("category match");
+		}
+		else{
+			return;
 		}
 		
 		if(student.getGender()==null){
@@ -233,6 +299,9 @@ public class Controller {
 		else if(student.getGender().equals(applicant.getGender())){
 			System.out.println("gender match");
 		}
+		else{
+			return;
+		}
 		
 		if(student.getIsPhysicallyDisabled()==null){
 			
@@ -240,37 +309,177 @@ public class Controller {
 		else if(student.getIsPhysicallyDisabled().equals(applicant.getIsPhysicallyDisabled())){
 			System.out.println("PD match");
 		}
+		else{
+			return;
+		}
 		
-		//// Date of Birth
+		if(group3.getSelectedToggle()==before){
+			if(applicant.getDob().isBefore(student.getDob())){
+				System.out.println("Dob match");
+			}
+			else{
+				return;
+			}
+		}
+		else if(group3.getSelectedToggle()==after){
+			if(applicant.getDob().isAfter(student.getDob())){
+				System.out.println("Dob match");
+			}
+			else{
+				return;
+			}
+		}
+		else if(group3.getSelectedToggle()==on){
+			if(applicant.getDob().isEqual(student.getDob())){
+				System.out.println("Dob match");
+			}
+			else{
+				return;
+			}
+		}
+		
+		if(d1==null){
+			
+		}
+		else if(d1.isBefore(applicant.getDate())){
+			
+		}
+		else{
+			return;
+		}
+		
+		
+		if(d2==null){
+			
+		}
+		else if(d2.isAfter(applicant.getDate())){
+			
+		}
+		else{
+			return;
+		}
+		
+		
+		if(student.getPhdStream()==null){
+			
+		}
+		else if(student.getPhdStream().equals(applicant.getPhdStream())){
+			System.out.println("Phd stream match");
+		}
+		else{
+			return;
+		}
+		
+		
+		if(student.getGraduateDegree()==null){
+			
+		}
+		else if(student.getGraduateDegree().equals(applicant.getGraduateDegree())){
+			System.out.println("Grad Degree match");
+		}
+		else{
+			return;
+		}
+		
+		if(student.getPostGraduateDegree()==null){
+			
+		}
+		else if(student.getPostGraduateDegree().equals(applicant.getPostGraduateDegree())){
+			System.out.println("Post grad Degree match");
+		}
+		else{
+			return;
+		}
+		
+		if(student.getxBoard()==null){
+			
+		}
+		else if(student.getxBoard().equals(applicant.getxBoard())){
+			System.out.println("X Board match");
+		}
+		else{
+			return;
+		}
+		
+		if(student.getXiiBoard()==null){
+			
+		}
+		else if(student.getXiiBoard().equals(applicant.getXiiBoard())){
+			System.out.println("XII Board match");
+		}
+		else{
+			return;
+		}
+		
+		if(student.getGraduateDis()==null){
+			
+		}
+		else if(student.getGraduateDis().equals(applicant.getGraduateDis())){
+			System.out.println("Departmnet match");
+		}
+		else{
+			return;
+		}
+		
+		if(student.getPostGraduateDis()==null){
+			
+		}
+		else if(student.getPostGraduateDis().equals(applicant.getPostGraduateDis())){
+			System.out.println("Post Grad match");
+		}
+		else{
+			return;
+		}
+		
+		if(student.getGraduateUniversity().equals("")){
+			
+		}
+		else if(student.getGraduateUniversity().equals(applicant.getGraduateUniversity())){
+			System.out.println("Grad Univ match");
+		}
+		else{
+			return;
+		}
+		
+		if(student.getPostGraduateCollege().equals("")){
+			
+		}
+		else if(student.getPostGraduateCollege().equals(applicant.getPostGraduateCollege())){
+			System.out.println("Post Grad Univ match");
+		}
+		else{
+			return;
+		}
+		
+		if(student.getGraduateState()==null){
+			
+		}
+		else if(student.getGraduateState().equals(applicant.getGraduateState())){
+			System.out.println("Grad state match");
+		}
+		else{
+			return;
+		}
+		
+		if(student.getPostGraduateState()==null){
+			
+		}
+		else if(student.getPostGraduateState().equals(applicant.getPostGraduateState())){
+			System.out.println("Post Grad state match");
+		}
+		else{
+			return;
+		}
+		
+		
+		MainAdmin.data.add(applicant);
 		
 		
 		
 		
 		
 		
-		
-		
-		
-		
-	
+		System.out.println("Added to table");
 	}
-		
-	Student read()throws IOException, ClassNotFoundException{
-		
-		Student temp;
-		FileInputStream fin = new FileInputStream("./src/db/data.txt");
-		ObjectInputStream ois = new ObjectInputStream(fin);
-		temp= (Student) ois.readObject();
-		ois.close();
-		  
-		return temp;
-	}
-	}
-		
 	
-	
-
-
-	
-	
-
+}
